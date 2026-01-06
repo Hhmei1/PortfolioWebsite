@@ -51,13 +51,14 @@ a:focus-visible{
     border-style: solid;
 }
 
+/* Header Title and Subtitle */
 .page-home-title,
 .page-home-subtitle{
     margin: 0;
     padding: 0;
 }
 
-/* Header Structure */
+/* Header Elements Structure */
 .site-header{
     /* Front */
     z-index: 1;
@@ -66,9 +67,18 @@ a:focus-visible{
     display: flex;
     flex-direction: column;
 
+    /* Margin & Padding */
     margin-left: 3vw;
     padding-top: 5vh;
 }
+
+/* Navigation List */
+.nav-list{
+    list-style: none;
+    margin-top: 5vh;
+    padding: 0;
+}
+
 
 /* Footer */
 .site-footer{
