@@ -1,0 +1,38 @@
+/* ================ BASE RESET ================ */
+
+/* Width include padding and border */
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+/* Smooth Scoll / Jump */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reset Some Navigator defaults */
+body{
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+/* Images default setup */
+img{
+    max-width: 100%;
+    display: block;
+}
+
+/* Anchors default setup */
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus-visible{
+    text-decoration: underline;
+}
+
