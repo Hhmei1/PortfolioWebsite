@@ -36,3 +36,42 @@ a:focus-visible{
     text-decoration: underline;
 }
 
+/* ================ GLOBAL LAYOUT ================ */
+
+/* Background Home Page Box */
+.page-home-frame{
+    min-height: 90vh;
+
+    margin-top: 5vh;
+    margin-left: 3vw;
+    margin-right: 3vw;
+
+    background-color: rgba(78, 78, 78, 0.664);
+    border-color: rgba(240, 248, 255, 0.781);
+    border-style: solid;
+}
+
+.page-home-title,
+.page-home-subtitle{
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Structure */
+.site-header{
+    /* Front */
+    z-index: 1;
+
+    /*Vertical Structure*/
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 3vw;
+    padding-top: 5vh;
+}
+
+/* Footer */
+.site-footer{
+    margin-left: 3vw;
+}
+
