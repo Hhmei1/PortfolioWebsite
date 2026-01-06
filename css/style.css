@@ -38,8 +38,11 @@ a:focus-visible{
 
 /* ================ GLOBAL LAYOUT ================ */
 
-/* Background Home Page Box */
-.page-home-frame{
+
+/*---- IN GLOBAL BOX ---- */
+
+/*Global Box*/
+.page-home-frame{ 
     min-height: 90vh;
 
     margin-top: 5vh;
@@ -47,8 +50,37 @@ a:focus-visible{
     margin-right: 3vw;
 
     background-color: rgba(78, 78, 78, 0.664);
-    border-color: rgba(240, 248, 255, 0.781);
+    border-color: rgba(240, 248, 255, 0.836);
     border-style: solid;
+
+    /* Left and Right Sides */
+    display: flex;
+}
+
+.visual-background-area{
+    z-index: 0;
+    background-color: aliceblue;
+    min-width: fit-content;
+}
+
+
+/*---- IN LEFT BOX ---- */
+
+/* Header and Left Box*/
+.site-header{ 
+    /* Front */
+    z-index: 1;
+
+    /*Vertical Structure*/
+    display: flex;
+    flex-direction: column;
+
+    /* Margin & Padding */
+    padding-left: 3vw;
+    padding-top: 5vh;
+
+    /* Left Side */
+    width: 40%;
 }
 
 /* Header Title and Subtitle */
@@ -58,20 +90,6 @@ a:focus-visible{
     padding: 0;
 }
 
-/* Header Elements Structure */
-.site-header{
-    /* Front */
-    z-index: 1;
-
-    /*Vertical Structure*/
-    display: flex;
-    flex-direction: column;
-
-    /* Margin & Padding */
-    margin-left: 3vw;
-    padding-top: 5vh;
-}
-
 /* Navigation List */
 .nav-list{
     list-style: none;
@@ -79,6 +97,40 @@ a:focus-visible{
     padding: 0;
 }
 
+
+/*---- IN RIGHT BOX ---- */
+
+/* Right Box */
+.page-home-content{ 
+    /* Front */
+    z-index: 1;
+
+    /* Right Side */
+    width: 60%;
+
+    /* Margin & Padding */
+    padding-right: 3vw;
+    padding-top: 5vh;
+
+    display: flex; /* Make all childs element vertical */
+    position: relative; /* Reference for childs positions */
+}
+
+.content-aboutme{
+    /* Bottom Right Position in Box */
+    position: absolute; /*Relative to page-home-content box */
+    right: 80px;
+    bottom: 50px;
+
+    max-width: 250px;
+
+    font-size: 1.3rem;
+    text-align: justify;
+    
+}
+
+
+/*---- OUTSIDE GLOBAL BOX ---- */
 
 /* Footer */
 .site-footer{
