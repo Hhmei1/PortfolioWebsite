@@ -11,7 +11,7 @@
 html {
     margin: 0;
     height: 100%;
-    scroll-behavior: smooth;
+    /*scroll-behavior: smooth;*/
     /*overflow-y: auto;*/
     overflow: hidden;
 }
@@ -65,16 +65,33 @@ a{
 /* ================ GLOBAL LAYOUT ================ */
 
 
-/*---- GLOBAL PAGE FRAME ---- */
+/* SHELL */
+.page-shell{
 
-/*Global Box*/
+    height: 100svh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: flex-start;
+    padding: 50px;
+    gap: 0px;
+}
+
+
+/*FRAME*/
 .page-frame{ 
-    min-height: 85vh;
+    /*min-height: 85vh;*/
+    width: 90vw;
+    height: calc(100svh - 50px - 50px - 30px); 
+    /* 100svh - padding top - padding bottom - height footer approx */
 
-    margin-top: 5vh;
+    /*margin-top: 5vh;*/
     /*margin-bottom: 5vh;*/
-    margin-left: 3vw;
-    margin-right: 3vw;
+    /*margin-left: 3vw;
+    margin-right: 3vw;*/
 
     background-color: rgba(78, 78, 78, 0.664);
     border-color: rgba(240, 248, 255, 0.836);
@@ -82,7 +99,10 @@ a{
 
     /* Left and Right Sides */
     display: flex;
+    flex: 0 0 auto;
+
 }
+
 
 /* Box background for later ... */
 .visual-background-area{
@@ -113,6 +133,9 @@ a{
 
     /* Left Side */
     width: 40%;
+
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 /* Header Title and Subtitle */
@@ -173,8 +196,7 @@ a{
     display: flex; /* Make all childs element vertical */
     position: relative; /* Reference for childs positions */
 
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 
@@ -192,6 +214,7 @@ a{
 
     right: 4vw;
     bottom: 3vh;
+    top: 20vh;
 
     width: 250px;
     
@@ -205,7 +228,7 @@ a{
     overflow-y: auto;
     overflow-x: hidden;
 
-    overscroll-behavior: contain;
+    /*overscroll-behavior: contain;*/
     scrollbar-width: none;
 }
 
@@ -261,7 +284,7 @@ a{
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    scroll-margin-top: 70px;
+    /*scroll-margin-top: 70px;*/
 
     transform: translateY(6px);
     transition:
@@ -306,7 +329,6 @@ a{
 
 /* Footer */
 .page-footer{
-    margin-left: 5vw;
-    position: absolute;
+    
 }
 

@@ -10,72 +10,73 @@
     </head>
 
     <body class="page-home">
-        
-        <div class="page-frame">
+        <div class="page-shell">
 
-            <header class="page-header">
+            <div class="page-frame">
 
-            <h1 class="page-title">VELILLA Guillaume</h1>
-            <p class="page-subtitle">Developer & Game Designer</p>
+                <header class="page-header">
 
-            <nav class="site-nav" aria-label="Main Navigation">
-                <ul class="nav-list">
-                    <li class="nav-item"><a class="nav-link" href="#aboutme">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projectslist">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#infos">Infos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+                <h1 class="page-title">VELILLA Guillaume</h1>
+                <p class="page-subtitle">Developer & Game Designer</p>
 
-            </header>
+                <nav class="site-nav" aria-label="Main Navigation">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a class="nav-link" href="#aboutme">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projectslist">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#infos">Infos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
 
-            <div class="visual-background-area" aria-label="Visual Background Zone">
-                <!-- Main page background reserved for a futur visual -->
+                </header>
+
+                <div class="visual-background-area" aria-label="Visual Background Zone">
+                    <!-- Main page background reserved for a futur visual -->
+                </div>
+
+                <div class="page-content">
+
+                    <!-- Aboutme at the end of the list so the .content-page:target ~ #aboutme rule can work bc
+                    the ~ can reverse the DOM ! -->
+
+                    <!-- PROJECTS LIST -->
+                    <section id="projectslist" class="section-projectslist homepage-content" >
+                        <div class="projects-scroll">
+                            <ol class="projectslist">
+                                <li class="project-item"><a href="/pages/sunder.html">SUNDER</a></li>
+                                <li class="project-item"><a>PROJECT 02</a></li>
+                                <li class="project-item"><a>PROJECT 03</a></li>
+                                <li class="project-item"><a>PROJECT 04</a></li>
+                                <li class="project-item"><a>PROJECT 05</a></li>
+                                <li class="project-item"><a>PROJECT 06</a></li>
+                            </ol>
+                        </div>
+                    </section>
+
+                    <!-- INFOS -->
+                    <section id="infos" class="section-infos homepage-content">
+
+                    </section>
+
+                    <!-- CONTACT -->
+                    <section id="contact" class="section-contact homepage-content">
+
+                    </section>
+
+                    <!-- ABOUT ME Default Home Section -->
+                    <section id="aboutme" class="section-aboutme homepage-content">
+                        <div class="aboutme-scroll">
+                            <p>Hey,</p>
+                            <p>I'm a junior Game Designer based in Toulouse France.</p>
+                            <p>Just graduated form ESMA School and for now I decided to take time to work on differents projects ideas . . .</p>
+                            <p>I'm passionate about video games obviously but also about everything related to creative development and design. </p>
+                            <p>But what I like most is the view from my window !</p>
+                        </div>
+                    </section>
+
+                </div>
+
             </div>
-
-            <div class="page-content">
-
-                <!-- Aboutme at the end of the list so the .content-page:target ~ #aboutme rule can work bc
-                the ~ can reverse the DOM ! -->
-
-                <!-- PROJECTS LIST -->
-                <section id="projectslist" class="section-projectslist homepage-content" >
-                    <div class="projects-scroll">
-                        <ol class="projectslist">
-                            <li class="project-item"><a href="/pages/sunder.html">SUNDER</a></li>
-                            <li class="project-item"><a>PROJECT 02</a></li>
-                            <li class="project-item"><a>PROJECT 03</a></li>
-                            <li class="project-item"><a>PROJECT 04</a></li>
-                            <li class="project-item"><a>PROJECT 05</a></li>
-                            <li class="project-item"><a>PROJECT 06</a></li>
-                        </ol>
-                    </div>
-                </section>
-
-                <!-- INFOS -->
-                <section id="infos" class="section-infos homepage-content">
-
-                </section>
-
-                <!-- CONTACT -->
-                <section id="contact" class="section-contact homepage-content">
-
-                </section>
-
-                <!-- ABOUT ME Default Home Section -->
-                <section id="aboutme" class="section-aboutme homepage-content">
-                    <div class="aboutme-scroll">
-                        <p>Hey,</p>
-                        <p>I'm a junior Game Designer based in Toulouse France.</p>
-                        <p>Just graduated form ESMA School and for now I decided to take time to work on differents projects ideas . . .</p>
-                        <p>I'm passionate about video games obviously but also about everything related to creative development and design. </p>
-                        <p>But what I like most is the view from my window !</p>
-                    </div>
-                </section>
-
-            </div>
-
-        </div>
 
         <footer class="page-footer">
 
@@ -83,6 +84,7 @@
 
         </footer>
 
+        </div>
     </body>
 
 
