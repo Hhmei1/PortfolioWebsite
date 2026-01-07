@@ -27,15 +27,9 @@ img{
 
 /* Anchors default setup (global) */
 a{
-
     color: inherit;
     text-decoration: none;
 }
-
-/*a:hover,
-a:focus-visible{
-}*/
-
 
 /*  List Custom Anchors */
 .nav-list a,
@@ -157,28 +151,48 @@ a:focus-visible{
     /* Margin & Padding */
     padding-right: 3vw;
     padding-top: 3vh;
+    
+    box-sizing: border-box;
+    overflow-y: scroll;
+    
 
     display: flex; /* Make all childs element vertical */
     position: relative; /* Reference for childs positions */
 }
 
+
+
+
 /* About me content section*/
 .content-aboutme{
     /* Bottom Right Position in Box */
     position: absolute; /*Relative to page-home-content box */
-    right: 80px;
-    bottom: 50px;
 
-    max-width: 250px;
+    right: 4vw;
+    bottom: 3vh;
 
+    width: 250px;
+    
     font-size: 1.3rem;
-    text-align: justify;    
+    text-align: justify;
 }
+
+/* Aboutme Scrool box */
+.aboutme-scroll{
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+}
+
+
 
 /* Projects list content section*/
 .content-projectslist{
     position: absolute; /*Relative to page-home-content box */
-    right: 80px;
+    right: 5vw;
     top: 50px;
 
     width: min(800px, 80vw);
@@ -187,7 +201,7 @@ a:focus-visible{
 /* Project list element <ol> */
 .projectslist{
     list-style: none;
-    font-size: 6rem;
+    font-size: 5rem;
     text-align: right;
     
     display: flex;
@@ -195,16 +209,20 @@ a:focus-visible{
     gap: 1.2rem;
 }
 
+/* Project list scroll */
 .projects-scroll{
     max-height: 80vh;
     min-height: 75vh;
+    
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: auto;
 
     overscroll-behavior: contain;
     scrollbar-width: none;
     padding-right: 20px;
 }
+
+
 
 /*---- CONTENT PAGE NAVIGATION SETUP ---- */
 
