@@ -35,16 +35,21 @@
 
             <div class="page-home-content">
 
-                <!--Aboutme at the end of the list so-->
+                <!-- Aboutme at the end of the list so the .content-page:target ~ #aboutme rule can work bc
+                the ~ can reverse the DOM ! -->
 
                 <!-- PROJECTS LIST -->
                 <section id="projectslist" class="content-projectslist content-page" >
-                    <ol class="projectslist">
-                        <li class="project-item"></li>
-                        <li class="project-item"></li>
-                        <li class="project-item"></li>
-                        <li class="project-item"></li>
-                    </ol>
+                    <div class="projects-scroll">
+                        <ol class="projectslist">
+                            <li class="project-item"><a>PROJECT 01</a></li>
+                            <li class="project-item"><a>PROJECT 02</a></li>
+                            <li class="project-item"><a>PROJECT 03</a></li>
+                            <li class="project-item"><a>PROJECT 04</a></li>
+                            <li class="project-item"><a>PROJECT 05</a></li>
+                            <li class="project-item"><a>PROJECT 06</a></li>
+                        </ol>
+                    </div>
                 </section>
 
                 <!-- INFOS -->

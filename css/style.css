@@ -37,8 +37,9 @@ a:focus-visible{
 }*/
 
 
-/* Nav list Custom Anchors */
-.nav-list a{ 
+/*  List Custom Anchors */
+.nav-list a,
+.projectslist a{ 
     display: inline-block; /* Allow translate movement */
     text-transform: none;
 
@@ -50,20 +51,15 @@ a:focus-visible{
 }
 
 .nav-list a:hover,
-.nav-list a:focus-visible{
+.nav-list a:focus-visible,
+.projectslist a:hover,
+.projectslist a:focus-visible{
     /*text-transform: uppercase;*/
 
     color: rgb(82, 82, 82);
     
     transform: translateX(6px);
 }
-
-/* Set default Div */
-div{
-    border-color: none;
-}
-
-
 
 /* ================ GLOBAL LAYOUT ================ */
 
@@ -183,9 +179,32 @@ div{
 .content-projectslist{
     position: absolute; /*Relative to page-home-content box */
     right: 80px;
-    bottom: 50px;
+    top: 50px;
+
+    width: min(800px, 80vw);
 }
 
+/* Project list element <ol> */
+.projectslist{
+    list-style: none;
+    font-size: 6rem;
+    text-align: right;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.projects-scroll{
+    max-height: 80vh;
+    min-height: 75vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+    padding-right: 20px;
+}
 
 /*---- CONTENT PAGE NAVIGATION SETUP ---- */
 
@@ -223,6 +242,7 @@ div{
     transform: translateY(0);
 }
 
+/* Hide the aboutme section when traget another one */
 .content-page:target ~ #aboutme{
     opacity: 0;
     visibility: hidden;
