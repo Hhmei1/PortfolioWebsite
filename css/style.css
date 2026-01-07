@@ -58,6 +58,11 @@ a:focus-visible{
     transform: translateX(6px);
 }
 
+/* Set default Div */
+div{
+    border-color: none;
+}
+
 
 
 /* ================ GLOBAL LAYOUT ================ */
@@ -161,6 +166,7 @@ a:focus-visible{
     position: relative; /* Reference for childs positions */
 }
 
+/* About me content section*/
 .content-aboutme{
     /* Bottom Right Position in Box */
     position: absolute; /*Relative to page-home-content box */
@@ -170,10 +176,59 @@ a:focus-visible{
     max-width: 250px;
 
     font-size: 1.3rem;
-    text-align: justify;
-    
+    text-align: justify;    
 }
 
+/* Projects list content section*/
+.content-projectslist{
+    position: absolute; /*Relative to page-home-content box */
+    right: 80px;
+    bottom: 50px;
+}
+
+
+/*---- CONTENT PAGE NAVIGATION SETUP ---- */
+
+/* Base Setup for each content section */
+.content-page{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(6px);
+    transition:
+        opacity 250ms ease,
+        transform 250ms ease,
+        visibility 0s linear 250ms;
+}
+
+/* Content display on target */
+.content-page:target{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+    transition:
+        opacity 250ms ease,
+        transform 250ms ease,
+        visibility 0s;
+}
+
+/* Display Aboutme by default */
+#aboutme{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.content-page:target ~ #aboutme{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(6px);
+}
 
 /*---- OUTSIDE GLOBAL BOX ---- */
 
