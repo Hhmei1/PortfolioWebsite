@@ -66,7 +66,7 @@ a{
 /*---- IN GLOBAL BOX ---- */
 
 /*Global Box*/
-.page-home-frame{ 
+.page-frame{ 
     min-height: 85vh;
 
     margin-top: 5vh;
@@ -89,10 +89,13 @@ a{
 }
 
 
+
+
+
 /*---- IN LEFT BOX ---- */
 
 /* Header and Left Box*/
-.site-header{ 
+.page-header{ 
     /* Front */
     z-index: 1;
 
@@ -109,7 +112,7 @@ a{
 }
 
 /* Header Title and Subtitle */
-.page-home-title{
+.page-title{
     /* Margin & Padding */
     margin: 0;
     padding: 0;
@@ -119,7 +122,7 @@ a{
     
 }
 
-.page-home-subtitle{
+.page-subtitle{
     /* Margin & Padding */
     margin: 0;
     padding: 0;
@@ -144,10 +147,13 @@ a{
 }
 
 
+
+
+
 /*---- IN RIGHT BOX ---- */
 
 /* Right Box */
-.page-home-content{ 
+.page-content{ 
     /* Front */
     z-index: 1;
 
@@ -169,8 +175,13 @@ a{
 
 
 
-/* About me content section*/
-.content-aboutme{
+
+
+
+
+/*---- ABOUT ME SECTION ---- */
+
+.section-aboutme{
     /* Bottom Right Position in Box */
     position: absolute; /*Relative to page-home-content box */
 
@@ -195,8 +206,13 @@ a{
 
 
 
+
+
+
+/*---- PROJECTS SECTION ---- */
+
 /* Projects list content section*/
-.content-projectslist{
+.section-projectslist{
     position: absolute; /*Relative to page-home-content box */
     right: 5vw;
     top: 50px;
@@ -230,10 +246,13 @@ a{
 
 
 
-/*---- CONTENT PAGE NAVIGATION SETUP ---- */
+
+
+
+/*---- HOMEPAGE CONTENT NAVIGATION SETUP ---- */
 
 /* Base Setup for each content section */
-.content-page{
+.homepage-content{
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -247,7 +266,7 @@ a{
 }
 
 /* Content display on target */
-.content-page:target{
+.homepage-content:target{
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -268,17 +287,20 @@ a{
 }
 
 /* Hide the aboutme section when traget another one */
-.content-page:target ~ #aboutme{
+.homepage-content:target ~ #aboutme{
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transform: translateY(6px);
 }
 
-/*---- OUTSIDE GLOBAL BOX ---- */
+
+
+
+/*---- OUTSIDE PAGE CONTENT BOX ---- */
 
 /* Footer */
-.site-footer{
+.page-footer{
     margin-left: 5vw;
     position: absolute;
 }
