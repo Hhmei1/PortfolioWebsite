@@ -12,13 +12,13 @@ html {
     margin: 0;
     height: 100%;
     scroll-behavior: smooth;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 /* Reset Some Navigator defaults */
 body{
     height: 100%;
-    overflow: hidden;
+    overflow-y: auto;
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     line-height: 1.5;
@@ -70,6 +70,7 @@ a{
     min-height: 90vh;
 
     margin-top: 5vh;
+    /*margin-bottom: 5vh;*/
     margin-left: 3vw;
     margin-right: 3vw;
 
@@ -236,6 +237,7 @@ a{
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    scroll-margin-top: 70px;
 
     transform: translateY(6px);
     transition:
@@ -278,5 +280,6 @@ a{
 /* Footer */
 .site-footer{
     margin-left: 3vw;
+    position: absolute;
 }
 
