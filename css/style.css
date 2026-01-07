@@ -9,11 +9,16 @@
 
 /* Smooth Scoll / Jump */
 html {
+    margin: 0;
+    height: 100%;
     scroll-behavior: smooth;
+    overflow: hidden;
 }
 
 /* Reset Some Navigator defaults */
 body{
+    height: 100%;
+    overflow: hidden;
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     line-height: 1.5;
