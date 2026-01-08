@@ -2,42 +2,34 @@
 
 
 
-/* 
+/* root / html / body */
 
- Some designs rules reminders for me here : 
+:root{
 
- Light Mode :
+    /* Light theme dataset */
+    --light-color-shell-background: whitesmoke;
+    --light-color-frame-background: whitesmoke;
+    --light-color-frame-border: black;
+    --light-color-text: black;
+    --light-color-text-hover: rgb(82, 82, 82);
 
- Text Font color (In Frame): black
- Text Hover color (In Frame): rgb(82, 82, 82)
- Text Font color (In Shell): 
- Text Hover color (In Shell):  
- Shell Background color : whitesmoke
- Frame Background color : whitesmoke
- Frame border color: black
+    /* Dark theme dataset */
+    --dark-color-shell-background: black;
+    --dark-color-frame-background: black;
+    --dark-color-frame-border: whitesmoke;
+    --dark-color-text: whitesmoke;
+    --dark-color-text-hover: rgb(82, 82, 82);
 
- Dark mode :
+    /* Active variables set */ /* Default is dark */
+    --active-color-shell-background: var(--dark-color-shell-background);
+    --active-color-frame-background: var(--dark-color-frame-background);
+    --active-color-frame-border: var(--dark-color-frame-border);
+    --active-color-text: var(--dark-color-text);
+    --active-color-text-hover: var(--dark-color-text-hover);
 
- Text Font color (In Frame): whitesmoke
- Text Hover color (In Frame): rgb(82, 82, 82)
- Text Font color (In Shell): 
- Text Hover color (In Shell): 
- Shell Background color :
- Frame Background color :
- Frame border color: whitesmoke
-
-*/
-
-
-
-/* Width include padding and border */
-*,
-*::before,
-*::after{
-    box-sizing: border-box;
 }
 
-/* Smooth Scoll / Jump */
+
 html {
     margin: 0;
     height: 100%;
@@ -46,7 +38,7 @@ html {
     overflow: hidden;
 }
 
-/* Reset Some Navigator defaults */
+
 body{
     height: 100%;
     /*overflow-y: auto;*/
@@ -54,6 +46,17 @@ body{
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     line-height: 1.5;
+}
+
+
+
+
+
+/* Width include padding and border */
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
 }
 
 /* Images default setup */
@@ -74,8 +77,6 @@ a{
     display: inline-block; /* Allow translate movement */
     text-transform: none;
 
-    color: black;
-
     transition: 
         color 0.25s ease, 
         transform 0.25s ease;
@@ -87,7 +88,7 @@ a{
 .projectslist a:focus-visible{
     /*text-transform: uppercase;*/
 
-    color: rgb(82, 82, 82);
+    color: var(--active-color-text-hover);
     
     transform: translateX(6px);
 }
@@ -111,7 +112,16 @@ a{
     padding: 50px;
     gap: 0px;
 
-    background-color: whitesmoke;
+    background-color: var(--active-color-shell-background);
+    color: var(--active-color-text);
+}
+
+.page-shell:has(#theme-light:checked){
+    --active-color-shell-background: var(--light-color-shell-background);
+    --active-color-frame-background: var(--light-color-frame-background);
+    --active-color-frame-border: var(--light-color-frame-border);
+    --active-color-text: var(--light-color-text);
+    --active-color-text-hover: var(--light-color-text-hover);
 }
 
 
@@ -121,16 +131,13 @@ a{
     height: calc(100svh - 50px - 50px - 30px); 
     /* 100svh - padding top - padding bottom - height footer approx */
 
-    background-color: whitesmoke;
-    border-color: black;
+    background-color: var(--active-color-frame-background);
+    border-color: var(--active-color-frame-border);
     border-style: solid;
-
-    color: black;
 
     /* Left and Right Sides */
     display: flex;
     flex: 0 0 auto;
-
 }
 
 
