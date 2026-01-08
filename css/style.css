@@ -329,6 +329,15 @@ a{
 
 /* Footer */
 .page-footer{
-    
+    align-self: flex-start; /* Allow to be self align ( normaly align by shell ) */
+    margin-left: 3vw;
+}
+
+.page-footer p{
+    font-size: 0.9rem;
+    font-weight: 400;
+
+    margin-top: 0.5rem;
+    margin-bottom: 0;
 }
 
