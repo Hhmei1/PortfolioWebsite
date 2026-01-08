@@ -84,12 +84,12 @@ a{
 
 .nav-list a:hover,
 .nav-list a:focus-visible,
+
 .projectslist a:hover,
 .projectslist a:focus-visible{
     /*text-transform: uppercase;*/
 
     color: var(--active-color-text-hover);
-    
     transform: translateX(6px);
 }
 
@@ -249,9 +249,8 @@ a{
     position: absolute; /*Relative to page-content box */
 
     right: 4vw;
-    bottom: 3vh;
-    top: 20vh;
-
+    
+    max-height: 70vh;
     width: 250px;
 
     display: flex;
@@ -369,6 +368,10 @@ a{
 
 /*---- OUTSIDE PAGE CONTENT BOX ---- */
 
+
+
+
+
 /* Footer */
 .page-footer{
     align-self: flex-start; /* Allow to be self align ( normaly align by shell ) */
@@ -384,6 +387,11 @@ a{
 }
 
 
+
+
+
+
+
 /* Theme toggle */
 .theme-toggle{
     font-size: 2rem; 
@@ -393,7 +401,7 @@ a{
 
 
     position: absolute;
-    left: calc((100vw - 90vw)/2 - 140px);
+    left: calc((100vw - 90vw)/2 - 170px);
     bottom: calc((100vh - 90vh)/2 + 140px);
 
     display: flex;
@@ -402,3 +410,38 @@ a{
 
     /*outline: 1px dashed red;*/
 }
+
+.theme-toggle input,
+.theme-toggle label{
+    cursor: pointer;
+}
+
+.theme-toggle input{
+    /*position: absolute;*/
+    opacity: 0;
+}
+
+.theme-toggle label{
+    display:inline-flex;
+    align-items: center;
+    gap: 8px;
+    /*user-select: none;*/
+}
+
+/* Toggle square ( not real input )*/
+.theme-toggle label::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 2px solid currentColor;
+    border-radius: 0px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+#theme-dark:checked + label::before,
+#theme-light:checked + label::before{
+  background: currentColor;
+}
+
+
