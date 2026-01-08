@@ -246,6 +246,10 @@ a{
     top: 20vh;
 
     width: 250px;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
     
     font-size: 1.3rem;
     text-align: justify;
@@ -253,8 +257,11 @@ a{
 
 /* Aboutme Scrool box */
 .aboutme-scroll{
-    max-height: 80vh;
-    
+    /*max-height: 80vh;*/
+
+    flex; 1;
+    min-height: 0;
+
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: none;
