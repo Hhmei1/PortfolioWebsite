@@ -224,17 +224,31 @@ a{
     width: 60%;
 
     /* Margin & Padding */
-    padding-right: 3vw;
-    padding-top: 3vh;
+    padding: 3vh 3vw;
     
     box-sizing: border-box;
     
-    display: flex; /* Make all childs element vertical */
+    display: flex; 
     position: relative; /* Reference for childs positions */
 
     overflow: hidden;
 }
 
+
+
+
+/* SUNDER PAGE CONTENT AREA */
+.sunder-page-content{
+    /* Fit the all page-content space */
+    height: 100%;
+    width: 100%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
 
 
 
@@ -443,5 +457,39 @@ a{
 #theme-light:checked + label::before{
   background: currentColor;
 }
+
+
+
+
+
+/* Home link */
+
+.home-link-box{
+    font-size: 2rem;
+
+    z-index: 1;
+    transform: rotate(0.75turn);
+
+    position: absolute;
+    left: calc((100vw - 90vw)/2 - 70px);
+    top: calc((100vh - 90vh)/2 + 40px);
+    display: flex;
+}
+
+
+
+.return-home-link{
+    transition: 
+        color 0.25s ease, 
+        transform 0.25s ease;
+}
+
+.return-home-link:hover{
+
+    color: var(--active-color-text-hover);
+    transform: translateX(6px);
+}
+
+
 
 
