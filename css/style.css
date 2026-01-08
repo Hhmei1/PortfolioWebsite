@@ -1,5 +1,35 @@
 /* ================ BASE SETUP ================ */
 
+
+
+/* 
+
+ Some designs rules reminders for me here : 
+
+ Light Mode :
+
+ Text Font color (In Frame): black
+ Text Hover color (In Frame): rgb(82, 82, 82)
+ Text Font color (In Shell): 
+ Text Hover color (In Shell):  
+ Shell Background color : whitesmoke
+ Frame Background color : whitesmoke
+ Frame border color: black
+
+ Dark mode :
+
+ Text Font color (In Frame): whitesmoke
+ Text Hover color (In Frame): rgb(82, 82, 82)
+ Text Font color (In Shell): 
+ Text Hover color (In Shell): 
+ Shell Background color :
+ Frame Background color :
+ Frame border color: whitesmoke
+
+*/
+
+
+
 /* Width include padding and border */
 *,
 *::before,
@@ -44,7 +74,7 @@ a{
     display: inline-block; /* Allow translate movement */
     text-transform: none;
 
-    color: whitesmoke;
+    color: black;
 
     transition: 
         color 0.25s ease, 
@@ -68,6 +98,8 @@ a{
 /* SHELL */
 .page-shell{
 
+    position: relative;
+
     height: 100svh;
     width: 100vw;
 
@@ -78,24 +110,22 @@ a{
     justify-content: flex-start;
     padding: 50px;
     gap: 0px;
+
+    background-color: whitesmoke;
 }
 
 
 /*FRAME*/
 .page-frame{ 
-    /*min-height: 85vh;*/
     width: 90vw;
     height: calc(100svh - 50px - 50px - 30px); 
     /* 100svh - padding top - padding bottom - height footer approx */
 
-    /*margin-top: 5vh;*/
-    /*margin-bottom: 5vh;*/
-    /*margin-left: 3vw;
-    margin-right: 3vw;*/
-
-    background-color: rgba(78, 78, 78, 0.664);
-    border-color: rgba(240, 248, 255, 0.836);
+    background-color: whitesmoke;
+    border-color: black;
     border-style: solid;
+
+    color: black;
 
     /* Left and Right Sides */
     display: flex;
@@ -107,7 +137,6 @@ a{
 /* Box background for later ... */
 .visual-background-area{
     z-index: 0;
-    background-color: aliceblue;
     min-width: 0;
     flex: 1 1 auto;
 }
@@ -210,7 +239,7 @@ a{
 
 .section-aboutme{
     /* Bottom Right Position in Box */
-    position: absolute; /*Relative to page-home-content box */
+    position: absolute; /*Relative to page-content box */
 
     right: 4vw;
     bottom: 3vh;
@@ -225,10 +254,9 @@ a{
 /* Aboutme Scrool box */
 .aboutme-scroll{
     max-height: 80vh;
+    
     overflow-y: auto;
     overflow-x: hidden;
-
-    /*overscroll-behavior: contain;*/
     scrollbar-width: none;
 }
 
@@ -241,7 +269,7 @@ a{
 
 /* Projects list content section*/
 .section-projectslist{
-    position: absolute; /*Relative to page-home-content box */
+    position: absolute; /*Relative to page-content box */
     right: 5vw;
     top: 50px;
 
@@ -341,3 +369,22 @@ a{
     margin-bottom: 0;
 }
 
+
+/* Theme toggle */
+.theme-toggle{
+    font-size: 2rem; 
+
+    z-index: 1;
+    transform: rotate(0.75turn);
+
+
+    position: absolute;
+    left: calc((100vw - 90vw)/2 - 140px);
+    bottom: calc((100vh - 90vh)/2 + 140px);
+
+    display: flex;
+    /*flex-direction: column;*/
+    gap: 8px;
+
+    /*outline: 1px dashed red;*/
+}
