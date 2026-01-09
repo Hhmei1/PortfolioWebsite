@@ -393,6 +393,10 @@ a{
         "version techart"
 }
 
+.contributions-parts{
+    text-align: center;
+}
+
 .server{
     grid-area: server;
 }
