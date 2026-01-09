@@ -383,9 +383,31 @@ a{
 
 /* My Role section */ 
 
+.contributions-grid{
+    display: grid;
+    gap: 0.8rem;
 
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "server archi"
+        "version techart"
+}
 
+.server{
+    grid-area: server;
+}
 
+.archi{
+    grid-area: archi;
+}
+
+.version{
+    grid-area: version;
+}
+
+.techart{
+    grid-area: techart;
+}
 /*======= HOME PAGE SECTIONS =======*/
 
 /*---- ABOUT ME SECTION ---- */
