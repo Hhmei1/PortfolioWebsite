@@ -309,22 +309,18 @@ a{
 }
 
 .section-part{
-
-    min-width: 20ch;
-    min-height: 10ch;
-
     overflow-wrap: anywhere;
     word-break: normal;
     text-align: justify;
     padding: 8px;
-
 }
 
 .section-part h2{
-    text-align: justify;
     font-style: italic;
     margin-bottom: 40px;
 }
+
+
 
 
 
@@ -454,12 +450,29 @@ a{
     margin: 3rem 0;
 }
 
-.short_answer_img{
-    margin: 1rem 0;
+
+.image-and-sourcelogo{
+
+    height: fit-content;
+    width: 100%;
+
+    margin: 2.5rem 0;
+
+    display: flex ;
+    flex-direction: column;
+}
+.short-answer-img{
     border: 2px solid var(--active-color-frame-border);
+
+    width: 100%;
 }
 
-
+.short-answer-source-img{
+    width: calc(100% / 3);
+    height: calc(100% / 3);
+    
+    align-self: flex-end;
+}
 
 
 
