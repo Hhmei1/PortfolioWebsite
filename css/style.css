@@ -393,10 +393,6 @@ a{
         "version techart"
 }
 
-.contributions-parts{
-    text-align: center;
-}
-
 .server{
     grid-area: server;
 }
@@ -412,6 +408,15 @@ a{
 .techart{
     grid-area: techart;
 }
+
+.contributions-parts h3{
+    text-align: center;
+}
+
+.contributions-parts p{
+    text-align: justify;
+}
+
 /*======= HOME PAGE SECTIONS =======*/
 
 /*---- ABOUT ME SECTION ---- */
