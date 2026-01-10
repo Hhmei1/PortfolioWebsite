@@ -153,11 +153,11 @@ a{
     --active-color-text-hover: var(--light-color-text-hover);
 }
 
-.page-shell:has(#theme-light:checked) .title-dark-theme{
+.page-shell:has(#theme-light:checked) .title-dark-theme-img{
     display: none;
 }
 
-.page-shell:has(#theme-dark:checked) .title-light-theme{
+.page-shell:has(#theme-dark:checked) .title-light-theme-img{
     display: none;
 }
 
@@ -328,6 +328,10 @@ a{
 
 
 
+/* ------------------ SUNDER PAGE --------------------------*/
+
+
+
 
 /* Overview section */
 
@@ -347,11 +351,12 @@ a{
 
 .hero{
     grid-area: hero;
-    margin-bottom: 10rem;
+    margin-top: 4rem;
+    margin-bottom: 6rem;
 }
 
 
-/* SUNDER ONLY USING IT FOR NOW */
+
 /* Using 2 image dark/light superposed so img adapt to the theme*/
 /* Did this bc I only had the .png format no JS wanted*/
 
@@ -367,7 +372,6 @@ a{
     display: block;
 }
 
-/*------------------------------------*/
 
 .pitch{
     grid-area: pitch; 
@@ -416,6 +420,7 @@ a{
 
 .contributions-parts h3{
     text-align: center;
+    margin: 0;
 }
 
 .contributions-parts p{
@@ -428,7 +433,9 @@ a{
 
 .dedicated-server{
     margin-top: 2rem;
+    text-align: justify;
 }
+
 
 .Miyagi-Sentence{
     display: flex;
@@ -438,6 +445,31 @@ a{
 .Miyagi-Sentence img{
     margin-right: 2rem;
 }
+
+.dedicated-server h2:nth-of-type(2){
+    margin: 2rem 0;
+}
+
+.dedicated-server hr:nth-of-type(1){
+    margin: 3rem 0;
+}
+
+.short_answer_img{
+    margin: 1rem 0;
+    border: 2px solid var(--active-color-frame-border);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*======= HOME PAGE SECTIONS =======*/
