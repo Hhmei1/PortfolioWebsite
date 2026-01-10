@@ -115,6 +115,11 @@ a{
     /* Add a cool animation later */
 }
 
+.disclaimer{
+    text-align: center;
+    font-style: italic;
+}
+
 
 /* ================ GLOBAL LAYOUT ================ */
 
@@ -416,6 +421,24 @@ a{
 .contributions-parts p{
     text-align: justify;
 }
+
+
+/* Programming & Production Section */
+
+
+.dedicated-server{
+    margin-top: 2rem;
+}
+
+.Miyagi-Sentence{
+    display: flex;
+    align-items:end;
+}
+
+.Miyagi-Sentence img{
+    margin-right: 2rem;
+}
+
 
 /*======= HOME PAGE SECTIONS =======*/
 
