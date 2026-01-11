@@ -153,13 +153,15 @@ a{
     --active-color-text-hover: var(--light-color-text-hover);
 }
 
-.page-shell:has(#theme-light:checked) .title-dark-theme-img{
+.page-shell:has(#theme-light:checked) .dark-theme-img{
     display: none;
 }
 
-.page-shell:has(#theme-dark:checked) .title-light-theme-img{
+.page-shell:has(#theme-dark:checked) .light-theme-img{
     display: none;
 }
+
+
 
 
 
@@ -356,16 +358,16 @@ a{
 /* Using 2 image dark/light superposed so img adapt to the theme*/
 /* Did this bc I only had the .png format no JS wanted*/
 
-.overview-title{
+
+.superposed-images{
     display: grid;
-    width: 100%;
 }
 
-.overview-title img{
-    grid-area: 1/1;
+
+.superposed-images img{ 
+    grid-area: 1 / 1;
     width: 100%;
     height: auto;
-    display: block;
 }
 
 
@@ -413,6 +415,11 @@ a{
 .techart{
     grid-area: techart;
 }
+
+
+
+
+
 
 .contributions-parts h3{
     text-align: center;
@@ -474,6 +481,11 @@ a{
     align-self: flex-end;
 }
 
+.buildsuccess-img{
+    width:100%;
+    border: 2px solid var(--active-color-frame-border);
+    margin: 2.5rem 0;
+}
 
 
 

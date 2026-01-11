@@ -53,9 +53,9 @@
                                 <!--<h2>SUNDER</h2>
                                 <p>A competitive 1v1 TPS / FPS arena shooter set on a hostile desert exoplanet.</p>-->
 
-                                <div class="overview-title">
-                                    <img class="title-dark-theme-img" src="../images/Sunder_Title_Art_Light.png" alt="SUNDER game title art"/>
-                                    <img class="title-light-theme-img" src="../images/Sunder_Title_Art_Dark.png" alt=""/>
+                                <div class="overview-title superposed-images">
+                                    <img class="dark-theme-img" src="../images/Sunder_Title_Art_Light.png" alt="SUNDER game title art"/>
+                                    <img class="light-theme-img" src="../images/Sunder_Title_Art_Dark.png" alt=""/>
                                 </div>
                             </div>
 
@@ -103,25 +103,45 @@
 
                                     <div class="server contributions-parts">
                                         <h3>Dedicated Server</h3>
-                                        <img src="../images/Sunder_Server_Incon_Light.png" alt="Dedicated server icon"/>
+
+                                        <div class="superposed-images">
+                                            <img class="dark-theme-img" src="../images/Sunder_Server_Incon_Light.png" alt="Dedicated server icon"/>
+                                            <img class="light-theme-img" src="../images/Sunder_Server_Incon_Dark.png" alt="Dedicated server icon"/>
+                                        </div>
+
                                         <p>Setting up a dedicated server , including client/server builds and deployment workflows.</p>
                                     </div>
 
                                     <div class="archi contributions-parts">
                                         <h3>Multiplayer Architecture</h3>
-                                        <img src="../images/Sunder_Architecture_Inco_Light_sizetest.png" alt="Architecture code icon"/>
-                                        <p>Designing and supporting the project"s code architecture, while contributing across gameplay systems with a strong focus on debugging, synchronization, and overall stability.</p>
+
+                                        <div class="superposed-images">
+                                            <img class="dark-theme-img" src="../images/Sunder_Architecture_Icon_Light.png" alt="Architecture code icon"/>
+                                            <img class="light-theme-img" src="../images/Sunder_Architecture_Icon_Dark.png" alt="Architecture code icon"/>
+                                        </div>
+                                        
+                                            <p>Designing and supporting the project"s code architecture, while contributing across gameplay systems with a strong focus on debugging, synchronization, and overall stability.</p>
                                     </div>
 
                                     <div class="version contributions-parts">
                                         <h3>Version Control & Pipeline</h3>
-                                        <img src="../images/Sunder_Version_Icon_Light.png" alt="Version Control & Pipeline icon"/>
+
+                                        <div class="superposed-images">
+                                            <img class="dark-theme-img" src="../images/Sunder_Version_Icon_Light.png" alt="Version Control & Pipeline icon"/>
+                                            <img class="light-theme-img" src="../images/Sunder_Version_Icon_Dark.png" alt="Version Control & Pipeline icon"/>
+                                        </div>
+
                                         <p>Setting up and maintaining version control workflows (GitHub LFS, Source build constraints) to support team collaboration and production stability.</p>
                                     </div>
                                         
                                     <div class="techart contributions-parts">
                                         <h3>Tech Art & Support</h3>
-                                        <img src="../images/Sunder_TechArt_Icon_Light.png" alt="TechArt icon"/>
+
+                                        <div class="superposed-images">
+                                            <img class="dark-theme-img" src="../images/Sunder_TechArt_Icon_Light.png" alt="TechArt icon"/>
+                                            <img class="light-theme-img" src="../images/Sunder_TechArt_Icon_Dark.png" alt="TechArt icon"/>
+                                        </div>
+
                                         <p>Supporting environment and technical art tasks, including landscape work, material research, RVT setup, and experimental solutions such as Nanite displacement and POM-based footprints.</p>
                                         
                                     </div>
@@ -160,6 +180,8 @@
 
                            <div class="section-part dedicated-server dedicated-server-grid">
 
+                                <!-- INTRO -->
+
                                 <h2 class="Miyagi-Sentence">
                                     <img class="MrMiyagi_icon" src="../images/MrMiyagi_Icon_Light.png" alt="MrMiyagi Stylized Icon"/>
                                     So, You want to make a Multiplayer Game ?
@@ -170,17 +192,42 @@
 
                                 <p>After this initial test, we took time to research multiplayer fundamentals and production constraints, including latency, synchronization issues, and the differences between online and local/LAN multiplayer games.</p>
 
-                                <p>Since competitive multiplayer games rarely rely on hosted peer-to-peer solutions, we decided to push the project further and experiment with a dedicated server setup.</p>
+                                <p>Since competitive multiplayer games rarely rely on hosted solutions, we decided to push the project further and experiment with a dedicated server setup.</p>
                                 <p>This choice was mainly driven by a desire to challenge ourselves and explore more advanced multiplayer workflows, an approach that was also encouraged by our instructors.</p>
 
                                 <hr>
 
-                                <h2>But, how do you actually build a dedicated server in Unreal Engine?</h2>
+                                <h2>But, how do you actually build a dedicated server in Unreal Engine ?</h2>
+
+                                <!-- PART 1 : SOURCE BUILD EDITOR -->
 
                                 <div class="image-and-sourcelogo">
                                     <img class="short-answer-img" src="../images/Short_answer_image.png" alt="Screen from forum Unreal"/>
                                     <img class="short-answer-source-img" src="../images/UnrealForum_Logo_Icon_Light.png" alt="Unreal forum title image">
                                 </div>
+
+                                <h2>So... how do you actually do it then ?</h2>
+                                
+                                <p>To be able to build a Dedicated Server target, the only real solution is to build Unreal Engine from source.</p>
+                                <p>Not the binary version available through the Epic Games Launcher, but the source version hosted on GitHub.</p>
+
+                                <p>This source build includes the missing server-side binaries and build targets that are simply not shipped with the vanilla editor.</p>
+
+                                <p>At this point, things get a bit less plug-and-play.</p>
+
+                                <p>Building the editor from source meant digging through official documentation, forum threads, and community tutorials, often incomplete or outdated, just to piece together the correct setup.
+                                Visual Studio had to be configured properly, with the right workloads, SDKs, and dependencies (C++ toolchain, Windows SDK, .NET, etc.), and even small misconfigurations could result in hours of wasted build time.</p>
+                                
+                                <p>After several failed attempts, long debugging sessions, and a lot of waiting,</p>
+
+                                <img class="buildsuccess-img" src="../images/Consolbuild_Successful.png" alt="Screen from consol showing build is successful !"/>
+                                <p><strong>Build succeeded — 0 errors.</strong></p>
+
+                                <p>From there, I finally had the possibility to make server and client builds and also testing directly in editor...</p>
+
+                                <p>Using Unreal Engine's built-in multiplayer testing tools, 
+                                I could launch multiple Play-In-Editor instances by configuring the number of players and network mode directly from the editor, 
+                                allowing one server instance and several client windows to run simultaneously on a single machine.</p>
 
                            </div>
 
