@@ -49,8 +49,7 @@ body{
 }
 
 
-
-
+/* ================ GENERIC AND RE-USABLE RULES ================ */
 
 /* Width include padding and border */
 *,
@@ -118,6 +117,13 @@ a{
 .disclaimer{
     text-align: center;
     font-style: italic;
+}
+
+
+
+.video-figure-default-style video{
+    width: 100%;
+    border: 2px solid var(--active-color-frame-border);
 }
 
 
