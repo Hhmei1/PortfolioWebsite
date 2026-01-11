@@ -440,14 +440,35 @@ a{
 }
 
 
-.Miyagi-Sentence{
-    display: flex;
-    align-items:end;
+/* INTRO */
+
+/* Grid 1 Start*/
+.Miyagi-Intro{
+    display: grid;
+    grid-template-columns: 100px 0.8fr;
+    gap: 20px;
 }
 
-.Miyagi-Sentence img{
-    margin-right: 2rem;
+/* Grid 2 */
+.Miyagi-Images{
+    display: grid;
+    grid-area: 1 / 1;
 }
+
+.Miyagi-Images img{
+    grid-area: 1 / 1;
+}
+/* Grid 2 End */
+
+section h2.Miyagi-Sentence{
+    grid-area: 1 / 2;
+    margin: 0;
+    align-self: flex-end;
+    justify-self: start;
+}
+/* Grid 1 End */
+
+
 
 .dedicated-server h2:nth-of-type(2){
     margin: 2rem 0;
@@ -458,6 +479,8 @@ a{
 }
 
 
+
+/* SOURCE BUILD PART */
 .image-and-sourcelogo{
 
     height: fit-content;
@@ -480,6 +503,7 @@ a{
     
     align-self: flex-end;
 }
+
 
 .buildsuccess-img{
     width:100%;
