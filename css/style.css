@@ -144,7 +144,8 @@ a{
     color: var(--active-color-text);
 }
 
-/* Theme switch */
+/* THEME SWITCH */
+
 .page-shell:has(#theme-light:checked){
     --active-color-shell-background: var(--light-color-shell-background);
     --active-color-frame-background: var(--light-color-frame-background);
@@ -162,6 +163,20 @@ a{
 }
 
 
+/* Using 2 image dark/light superposed so img adapt to the theme*/
+/* Did this bc I only had the .png format no JS wanted*/
+
+
+.superposed-images{
+    display: grid;
+}
+
+
+.superposed-images img{ 
+    grid-area: 1 / 1;
+    width: 100%;
+    height: auto;
+}
 
 
 
@@ -326,10 +341,7 @@ a{
 
 
 
-/* ------------------ SUNDER PAGE --------------------------*/
-
-
-
+/*=============== SUNDER PAGE SECTIONS ==============*/
 
 /* Overview section */
 
@@ -345,31 +357,11 @@ a{
         "context context";
 }
 
-
-
 .hero{
     grid-area: hero;
     margin-top: 4rem;
     margin-bottom: 6rem;
 }
-
-
-
-/* Using 2 image dark/light superposed so img adapt to the theme*/
-/* Did this bc I only had the .png format no JS wanted*/
-
-
-.superposed-images{
-    display: grid;
-}
-
-
-.superposed-images img{ 
-    grid-area: 1 / 1;
-    width: 100%;
-    height: auto;
-}
-
 
 .pitch{
     grid-area: pitch; 
@@ -416,11 +408,6 @@ a{
     grid-area: techart;
 }
 
-
-
-
-
-
 .contributions-parts h3{
     text-align: center;
     margin: 0;
@@ -433,14 +420,15 @@ a{
 
 /* Programming & Production Section */
 
+/* Dedicated server part */
 
 .dedicated-server{
-    margin-top: 2rem;
+    margin: 2rem 0;
     text-align: justify;
 }
 
 
-/* INTRO */
+/* Intro */
 
 /* Grid 1 Start*/
 .Miyagi-Intro{
@@ -449,7 +437,7 @@ a{
     gap: 20px;
 }
 
-/* Grid 2 */
+/* Grid 2 Start */
 .Miyagi-Images{
     display: grid;
     grid-area: 1 / 1;
@@ -469,40 +457,45 @@ section h2.Miyagi-Sentence{
 /* Grid 1 End */
 
 
-
-.dedicated-server h2:nth-of-type(2){
-    margin: 2rem 0;
-}
+/* Transition */
 
 .dedicated-server hr:nth-of-type(1){
     margin: 3rem 0;
 }
 
+.dedicated-server h2:nth-of-type(2){
+    margin: 2rem 0;
+}
 
 
-/* SOURCE BUILD PART */
+/* Source build part */
+
 .image-and-sourcelogo{
-
     height: fit-content;
-    width: 100%;
 
-    margin: 2.5rem 0;
-
-    display: flex ;
+    display: flex;
     flex-direction: column;
 }
+
 .short-answer-img{
     border: 2px solid var(--active-color-frame-border);
-
     width: 100%;
+}
+
+.short-answer-source-img-superposedbox{
+    display: grid;
+
+    align-self: flex-end;
 }
 
 .short-answer-source-img{
-    width: calc(100% / 3);
-    height: calc(100% / 3);
+    grid-area: 1/1;
+    justify-self: end;
     
-    align-self: flex-end;
+    width: calc(100% / 2);
 }
+
+
 
 
 .buildsuccess-img{
@@ -521,7 +514,7 @@ section h2.Miyagi-Sentence{
 
 
 
-/*======= HOME PAGE SECTIONS =======*/
+/*=============== HOME PAGE SECTIONS ==============*/
 
 /*---- ABOUT ME SECTION ---- */
 
