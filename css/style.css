@@ -12,6 +12,7 @@
     --light-color-frame-border: black;
     --light-color-text: black;
     --light-color-text-hover: rgb(82, 82, 82);
+    --light-sync-background-img: url(../images/SyncBackground_Icon_Dark.png);
 
     /* Dark theme dataset */
     --dark-color-shell-background: black;
@@ -19,6 +20,7 @@
     --dark-color-frame-border: whitesmoke;
     --dark-color-text: whitesmoke;
     --dark-color-text-hover: rgb(82, 82, 82);
+    --dark-sync-background-img: url(../images/SyncBackground_Icon_Light.png);
 
     /* Active variables set */ /* Default is dark */
     --active-color-shell-background: var(--dark-color-shell-background);
@@ -26,6 +28,7 @@
     --active-color-frame-border: var(--dark-color-frame-border);
     --active-color-text: var(--dark-color-text);
     --active-color-text-hover: var(--dark-color-text-hover);
+    --active-sync-background-img: var(--dark-sync-background-img);
 
 }
 
@@ -51,6 +54,8 @@ body{
 
 /* ================ GENERIC AND RE-USABLE RULES ================ */
 
+/* HTML ELEMENTS */
+
 /* Width include padding and border */
 *,
 *::before,
@@ -70,6 +75,10 @@ a{
     text-decoration: none;
 }
 
+
+
+/* MY OWN ELEMENTS */
+
 /*  List Custom Anchors */
 .nav-list a,
 .projectslist a{ 
@@ -85,7 +94,6 @@ a{
 
 .nav-list a:hover,
 .nav-list a:focus-visible,
-
 .projectslist a:hover,
 .projectslist a:focus-visible{
     /*text-transform: uppercase;*/
@@ -114,16 +122,26 @@ a{
     /* Add a cool animation later */
 }
 
+
+
 .disclaimer{
     text-align: center;
     font-style: italic;
 }
 
+.figure-default-style{
+    margin: 2.5rem;
+}
 
-
-.video-figure-default-style video{
+.figure-default-style img:not(.source-img), /* Used for case when the figcaption is a image maybe I will do better later */
+.figure-default-style video{
     width: 100%;
     border: 2px solid var(--active-color-frame-border);
+}
+/* Figcaption elements should be in figure elements so it's perfect (for me ;)  */
+.figcaption-default-style{
+    font-style: italic;
+    text-align: right;
 }
 
 
@@ -158,6 +176,7 @@ a{
     --active-color-frame-border: var(--light-color-frame-border);
     --active-color-text: var(--light-color-text);
     --active-color-text-hover: var(--light-color-text-hover);
+    --active-sync-background-img: var(--light-sync-background-img);
 }
 
 .page-shell:has(#theme-light:checked) .dark-theme-img{
@@ -465,16 +484,14 @@ section h2.Miyagi-Sentence{
 
 /* Transition */
 
-.dedicated-server hr:nth-of-type(1){
+hr{
     margin: 3rem 0;
 }
 
-.dedicated-server h2:nth-of-type(2){
-    margin: 2rem 0;
-}
 
 
 /* Source build part */
+
 
 .image-and-sourcelogo{
     height: fit-content;
@@ -483,17 +500,11 @@ section h2.Miyagi-Sentence{
     flex-direction: column;
 }
 
-.short-answer-img{
-    border: 2px solid var(--active-color-frame-border);
-    width: 100%;
-}
-
 .short-answer-source-img-superposedbox{
     display: grid;
 
     align-self: flex-end;
 }
-
 .short-answer-source-img{
     grid-area: 1/1;
     justify-self: end;
@@ -503,11 +514,13 @@ section h2.Miyagi-Sentence{
 
 
 
+.synchronization-sub-part{
+    background-image: var(--active-sync-background-img);
+    
+    background-repeat: no-repeat;
 
-.buildsuccess-img{
-    width:100%;
-    border: 2px solid var(--active-color-frame-border);
-    margin: 2.5rem 0;
+    background-position-y:bottom ;
+    background-position-x: right;
 }
 
 

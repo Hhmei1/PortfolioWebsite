@@ -178,7 +178,7 @@
                             <p class="disclaimer">This section follows a devlog-style approach, focusing on the development process rather than only final results.</p>
                             <p class="disclaimer">It reflects a school project and highlights the reasoning, challenges, and lessons learned throughout production.</p>
 
-                           <div class="section-part dedicated-server">
+                            <div class="section-part dedicated-server">
 
                                 <!-- INTRO -->
 
@@ -206,21 +206,20 @@
 
                                 <!-- PART 1 : SOURCE BUILD EDITOR -->
 
-                                <figure class="image-and-sourcelogo">
+                                <figure class="image-and-sourcelogo figure-default-style">
 
                                     <div class="superposed-images">
                                         <img class="short-answer-img light-theme-img" src="../images/ShortAnswer_Image_Light.png" alt="Screen from forum Unreal"/>
                                         <img class="short-answer-img dark-theme-img" src="../images/ShortAnswer_Image_Dark.png" alt="Screen from forum Unreal"/>
                                     </div>
 
-
-                                    <div class="short-answer-source-img-superposedbox">
-                                        <img class="short-answer-source-img dark-theme-img" src="../images/UnrealForum_Logo_Icon_Light.png" alt="Unreal forum title image">
-                                        <img class="short-answer-source-img light-theme-img" src="../images/UnrealForum_Logo_Icon_Dark.png" alt="Unreal forum title image">
+                                    <div class="short-answer-source-img-superposedbox source-img">
+                                        <img class="source-img short-answer-source-img dark-theme-img" src="../images/UnrealForum_Logo_Icon_Light.png" alt="Unreal forum title image">
+                                        <img class="source-img short-answer-source-img light-theme-img" src="../images/UnrealForum_Logo_Icon_Dark.png" alt="Unreal forum title image">
                                     </div>
                                 </figure>
 
-                                <h2>So... how do you actually do it then ?</h2>
+                                <h3>So... how do you actually do it then ?</h3>
                                 
                                 <p>To be able to build a Dedicated Server target, the only real solution is to build Unreal Engine from source.</p>
                                 <p>Not the binary version available through the Epic Games Launcher, but the source version hosted on GitHub.</p>
@@ -234,24 +233,68 @@
                                 
                                 <p>After several failed attempts, long debugging sessions, and a lot of waiting,</p>
 
-                                <figure class="superposed-images">
+                                <figure class="superposed-images figure-default-style">
                                     <img class="buildsuccess-img dark-theme-img" src="../images/Consolbuild_Successful_Light.png" alt="Screen from consol showing build is successful !"/>
                                     <img class="buildsuccess-img light-theme-img" src="../images/Consolbuild_Successful_Dark.png" alt="Screen from consol showing build is successful !"/>
+                                    <figcaption class="figcaption-default-style">Console Build Success message !</figcaption>
                                 </figure>
 
-                                <p><strong>Build succeeded — 0 errors — almost 19hours.</strong></p>
+                                <h3>Build succeeded — 0 errors — 19hours.</h3>
 
                                 <p>From there, I finally had the possibility to make server and client builds and also testing directly in editor...</p>
 
-                                <p>I could also launch multiple Play-In-Editor instances by configuring the number of players and network mode directly from the editor, 
-                                allowing one server instance and several client windows to run simultaneously on a single machine.</p>
 
-                                <figure class="video-figure-default-style">
+                                <figure class="figure-default-style">
+
                                     <video autoplay loop muted >
-                                    <source src="../videos/Sunder_Server&Client_Tests.mp4" type="video/mp4">
+                                        <source src="../videos/Sunder_Server&Client_Tests.mp4" type="video/mp4">
+                                    </video>
+
+                                    <figcaption class="figcaption-default-style">Early days video of testing client replication with dedicated server in Unreal editor.</figcaption>
                                 </figure>
 
-                           </div>
+                                <p>I could launch multiple Play-In-Editor instances by configuring the number of players and network mode directly from the editor, 
+                                allowing one server instance and several client windows to run simultaneously on a single machine.</p>
+
+                                <hr>
+
+                                <!-- PART 2 : LAGS AND SYNCHRONISATION -->
+
+                                <div class="synchronization-sub-part">
+                                    <h2>But we still had a problem...</h2>
+                                    
+                                    <p>As you may have noticed in the previous video, character movement was still jittery in certain situations, especially during locomotion.</p>
+                                    
+                                    <p><strong>Yep, we had lag.</strong></p>
+
+                                    <p>I started investigating every possible cause. <br>
+                                    Camera smoothing, Animation state machines, Floor collisions, Input handling, and more…</p>
+
+                                    <p>What caught my attention was that these small lags and rollbacks only occurred during character movement.<br>
+                                    Even Character rotation, was perfectly smooth.</p>
+                                    
+                                    <p>This was a strong indication that the issue was not related to animations, the full transform or anything,
+                                    but specifically to the player's position.</p>
+
+                                    <p>At that point, I started suspecting that something was constantly adjusting the player's position by very small values, causing visible jitter over time.</p>
+                                    <p>That naturally led me to think about <strong>synchronization.</strong></p>
+
+                                    <p>My first instinct was simple :</p>
+                                    <p>The client and the server probably didn't agree on the player's position at a given moment in time and were constantly fighting over which value was correct.</p>
+
+                                    <p>And well... that's exactly what was happening.</p>
+
+                                    <p>After digging through Unreal Engine documentation and developer forums, 
+                                    I finally discovered the concept of network timestamps between client and server.</p>
+
+                                    <p>In short, both sides were using different time references their internal clocks were out of sync,
+                                    which resulted in frequent movement corrections and visible jitter.</p>
+
+                                    <p>The issue wasn't the camera, the animations, or the collisions.</p>
+                                    <p><strong>It was time.</strong></p>
+
+                                </div>
+                            </div>
 
 
                         </section>
