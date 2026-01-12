@@ -176,7 +176,7 @@
                         <section id="programming-production" class="project-section">
 
                             <p class="disclaimer">This section follows a devlog-style approach, focusing on the development process rather than only final results.</p>
-                            <p class="disclaimer">It reflects a school project and highlights the reasoning, challenges, and lessons learned throughout production.</p>
+                            <p class="disclaimer">It reflects a school project and highlights my reasoning, challenges, and lessons learned throughout production.</p>
 
                             <div class="section-part dedicated-server">
 
@@ -214,8 +214,8 @@
                                     </div>
 
                                     <div class="short-answer-source-img-superposedbox source-img">
-                                        <img class="source-img short-answer-source-img dark-theme-img" src="../images/UnrealForum_Logo_Icon_Light.png" alt="Unreal forum title image">
-                                        <img class="source-img short-answer-source-img light-theme-img" src="../images/UnrealForum_Logo_Icon_Dark.png" alt="Unreal forum title image">
+                                        <img class="source-img short-answer-source-img dark-theme-img" src="../images/UnrealForum_Logo_Icon_Light.png" alt="Unreal forum title image"/>
+                                        <img class="source-img short-answer-source-img light-theme-img" src="../images/UnrealForum_Logo_Icon_Dark.png" alt="Unreal forum title image"/>
                                     </div>
                                 </figure>
 
@@ -260,12 +260,12 @@
 
                                 <!-- PART 2 : LAGS AND SYNCHRONISATION -->
 
-                                <div class="synchronization-sub-part">
+                                <div class="synchronization-sub-part-one">
                                     <h2>But we still had a problem...</h2>
                                     
                                     <p>As you may have noticed in the previous video, character movement was still jittery in certain situations, especially during locomotion.</p>
                                     
-                                    <p><strong>Yep, we had lag.</strong></p>
+                                    <h3>Yep, we had lag.</h3>
 
                                     <p>I started investigating every possible cause. <br>
                                     Camera smoothing, Animation state machines, Floor collisions, Input handling, and more…</p>
@@ -290,10 +290,51 @@
                                     <p>In short, both sides were using different time references their internal clocks were out of sync,
                                     which resulted in frequent movement corrections and visible jitter.</p>
 
-                                    <p>The issue wasn't the camera, the animations, or the collisions.</p>
-                                    <p><strong>It was time.</strong></p>
+                                    <p>The issue wasn't the camera, the animations, or the collisions. <strong>It was time.</strong> </p>
+                            
+                                
+                                </div>
+
+                                <div class="synchronization-sub-part-two">
+                                    <h3>How I fixed it.</h3>
+
+                                    <p>To fix jitter and rollbacks, I needed to make the simulation timing more stable.</p>
+                                    <p>So my solution was :</p>
+                                    <!--<p>Switching the project to a fixed, consistent timestep using Unreal's <strong>UGenlockedFixedRateCustomTimeStep.</strong></p>-->
+
+                                    <figure class="image-and-sourcelogo figure-default-style">
+
+                                        <img class="dark-theme-img" src="../images/UGenLock_Dark.png"/>
+                                        <img class="light-theme-img" src="../images/UGenLock_Light.png"/>
+
+                                        <div class="short-answer-source-img-superposedbox source-img">
+                                            <img class="source-img short-answer-source-img dark-theme-img" src="../images/UnrealForum_Logo_Icon_Light.png" alt="Unreal forum title image"/>
+                                            <img class="source-img short-answer-source-img light-theme-img" src="../images/UnrealForum_Logo_Icon_Dark.png" alt="Unreal forum title image"/>
+                                        </div>
+                                    </figure>
+
+                                    <p>By locking the engine's DeltaTime to a fixed rate, 
+                                    movement updates became more consistent frame-to-frame, which significantly reduced the visible jitter caused by frequent network corrections.</p>
+
+                                    <p>This didn't “magically sync” the client and server on its own but it stabilized the time progression used by movement simulation, 
+                                    making replication and reconciliation behave much more predictably.</p>
+
+                                    <p>With the scope and constraints of the project, this approach was a good balance between complexity and results, 
+                                    and proved sufficient for achieving stable and convincing multiplayer movement.</p>
+
+                                    <h3>And, Voilà !</h3>
+
+                                    <p class="disclaimer">At this point, I didn't "build a server from scratch", 
+                                    instead I set up and largely understood Unreal Engine's networking environment, how it behaves, and how to work with it properly.</p>
 
                                 </div>
+
+                                <hr>
+
+                                <!-- PART 3 : MULTIPLAYER ARCHITECTURES -->
+
+
+                                
                             </div>
 
 

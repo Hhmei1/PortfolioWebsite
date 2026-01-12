@@ -127,6 +127,7 @@ a{
 .disclaimer{
     text-align: center;
     font-style: italic;
+    margin: 3rem 0;
 }
 
 .figure-default-style{
@@ -142,6 +143,7 @@ a{
 .figcaption-default-style{
     font-style: italic;
     text-align: right;
+    margin-top: 0.5rem;
 }
 
 
@@ -514,11 +516,9 @@ hr{
 
 
 
-.synchronization-sub-part{
+.synchronization-sub-part-one{
     background-image: var(--active-sync-background-img);
-    
     background-repeat: no-repeat;
-
     background-position-y:bottom ;
     background-position-x: right;
 }
