@@ -79,6 +79,28 @@ a{
 
 /* MY OWN ELEMENTS */
 
+
+.references-links{
+
+     display: inline-block;
+    text-transform: none;
+    transition: 
+        color 0.25s ease, 
+        transform 0.25s ease;
+        
+}
+
+.references-links:hover,
+.references-links:focus-visible{
+
+    color: var(--active-color-text-hover);
+    transform: translateX(3px);
+
+}
+
+
+
+
 /*  List Custom Anchors */
 .nav-list a,
 .projectslist a{ 
@@ -101,6 +123,7 @@ a{
     color: var(--active-color-text-hover);
     transform: translateX(6px);
 }
+
 
 
 /* Small easter egg ok each SUNDER in text */
@@ -514,8 +537,7 @@ hr{
     width: calc(100% / 2);
 }
 
-
-
+/* Synchronisation part */
 .synchronization-sub-part-one{
     background-image: var(--active-sync-background-img);
     background-repeat: no-repeat;
@@ -523,12 +545,35 @@ hr{
     background-position-x: right;
 }
 
+/* Replication */
+.replication-img{
+    display: grid;
 
+    grid-template-columns: 0.5fr 0.5fr;
 
+    grid-template-areas: 
+    "a b"
+    "c b";
 
+    gap: 0.5rem;
+}
 
+.replicated-var-img{
+    grid-area: a;
+}
 
+.rpc-overview-img{
+    grid-area: b;
+}
 
+.repnotify-img{
+    grid-area: c;
+}
+
+.replication-img img{
+    width: 100%;
+    height: 100%;
+}
 
 
 
