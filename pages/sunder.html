@@ -256,13 +256,54 @@
                                 <p>I could launch multiple Play-In-Editor instances by configuring the number of players and network mode directly from the editor, 
                                 allowing one server instance and several client windows to run simultaneously on a single machine.</p>
 
+                                <p class="disclaimer">At this point, I didn't "build a server from scratch", 
+                                instead I set up and largely understood Unreal Engine's networking environment, how it behaves, and how to work with it properly.</p>
+
                                 <hr>
 
-                                <!-- PART 2 : LAGS AND SYNCHRONISATION -->
+
+                                <p class="disclaimer">With a functional dedicated server workflow in place, the next challenge was understanding how multiplayer systems actually behave at runtime.
+                                This section focuses on the core networking concepts that progressively shaped the project's multiplayer architecture.</p>
+
+                                <!-- PART 2 : MULTIPLAYER CODING BASICS -->
+
+                                <h2>Okay, but now… how do we code multiplayer ?</h2>
+
+                                <h3>First step, learn the basics.</h3>
+
+                                <figure class="figure-default-style">
+
+                                    <div class="replication-img">
+
+                                        <img class="replicated-var-img" src="../images/Replicated_Var_Images.png">
+
+                                        <img class="rpc-overview-img" src="../images/RPC_Overview_Image.png">
+                                        
+                                        <img class="repnotify-img" src="../images/RepNotify_Image.png">
+
+                                    </div>
+
+                                    <figcaption class="figcaption-default-style">
+                                        <a  class="references-links"
+                                            href="https://cedric-neukirchen.net/docs/category/multiplayer-network-compendium">
+                                            Images from Multiplayer Network Compendium on Cedric Neukirchen blog
+                                        </a>
+                                    </figcaption>
+                                </figure>
+                                    
+                                <p>After digging into the concept of instances, replication, and how they are applied in Unreal, through replicated variables, RepNotify and 
+                                client / server communication with RPC's, we were able to start coding !</p>
+                                <p>We throught ...</p>
+                                
+                                <hr>
+
+                                 <!-- PART 3 : LAGS AND SYNCHRONISATION -->
 
                                 <div class="synchronization-sub-part-one">
                                     <h2>But we still had a problem...</h2>
                                     
+                                    <!--Add video here-->
+
                                     <p>As you may have noticed in the previous video, character movement was still jittery in certain situations, especially during locomotion.</p>
                                     
                                     <h3>Yep, we had lag.</h3>
@@ -319,63 +360,63 @@
                                     <p>This didn't “magically sync” the client and server on its own but it stabilized the time progression used by movement simulation, 
                                     making replication and reconciliation behave much more predictably.</p>
 
+                                    <!--video here-->
+
                                     <p>With the scope and constraints of the project, this approach was a good balance between complexity and results, 
                                     and proved sufficient for achieving stable and convincing multiplayer movement.</p>
 
                                     <h3>And, Voilà !</h3>
 
-                                    <p class="disclaimer">At this point, I didn't "build a server from scratch", 
-                                    instead I set up and largely understood Unreal Engine's networking environment, how it behaves, and how to work with it properly.</p>
 
                                 </div>
 
-                                <hr>
+                                <!--
 
-                                <p class="disclaimer">With a functional dedicated server workflow in place, the next challenge was understanding how multiplayer systems actually behave at runtime.
-                                This section focuses on the core networking concepts that progressively shaped the project's multiplayer architecture.</p>
-
-                                <!-- PART 3 : MULTIPLAYER ARCHITECTURES -->
-
-                                <h2>Okay, but now… how do we code multiplayer ?</h2>
-
-                                <h3>First step, I learned the basics.</h3>
-
-                                <figure class="figure-default-style">
-
-                                    <div class="replication-img">
-
-                                        <img class="replicated-var-img" src="../images/Replicated_Var_Images.png">
-
-                                        <img class="rpc-overview-img" src="../images/RPC_Overview_Image.png">
-                                        
-                                        <img class="repnotify-img" src="../images/RepNotify_Image.png">
-
-                                    </div>
-
-                                    <figcaption class="figcaption-default-style">
-                                        <a  class="references-links"
-                                            href="https://cedric-neukirchen.net/docs/category/multiplayer-network-compendium">
-                                            Images from Multiplayer Network Compendium on Cedric Neukirchen blog
-                                        </a>
-                                    </figcaption>
-                                </figure>
-                                    
-                                <p>After digging into the concept of instances, replication, and how they are applied in Unreal, through replicated variables, RepNotify and 
-                                client / server communication with RPC's, we were able to start coding !</p>
-                                <p>We throught ...</p>
+                                <h3>And so, this was our first Multiplayer Architecture.</h3>
                                 
-                                <h3>And so, this was the first multiplayer architecture.</h3>
-                                
-                                <!--Architecture Diagram of classes ? Maybe through a link ?-->
-                                <!--Simplified schema-->
+                                Architecture Diagram of classes ? Maybe through a link ?
+                                Simplified schema
 
-                                <p>Our idea was simple, we will code pretty much using the same Unreal classes organisation that we use normaly, that mean in single player... 
-                                But we will try to organise all that a lil bit multiplayer like by choosing one place to put all the "server" code and another for the "clients" code...</p>
-                                
+                                <p>Our idea was simple,</p>
+                                <p>We planned to organize the multiplayer code almost the same way we usually do in single-player projects, following Unreal's standard class hierarchy.</p>
+                                <p>The only difference was that we tried to “separate” things logically:</p>
+                                <p>One place for what we considered server-side logic, and another for what we considered client-side logic.</p>
+                                <p>On paper, it sounded reasonable.</p>
                                 <p>But obviously we were wrong ...</p>
 
-                                <p>So, by doing this we encountered this kinds of problems :</p>
+                                <p>And so, we ran into several issues :</p>
+                                <ul>
+                                    <li><p>Confusion about where code should actually live ( GameMode, PlayerController, Character … ),</p></li>
+                                    <li><p>Client-side code executing logic that should have been server-authoritative,</p></li>
+                                    <li><p>Replicated variables being updated in the wrong place, leading to desynchronization,</p></li>
+                                    <li><p>RPCs being called from invalid contexts or at the wrong time.</p></li>
+                                </ul>
 
+                                <p>As the project grew, this architecture became increasingly difficult to scale, 
+                                and the tight coupling between client and server logic turned debugging into a constant struggle.</p>
+                                
+                                <p>And so, we took a step back, and I realized that I might have missed something.</p>
+
+                                <h3>Discovering the right Unreal Multiplayer Framework</h3>
+
+                                <p>I realized that we had simply skipped a crucial step : <br>
+                                Unreal has its own multiplayer framework and a clear definition of the role of its core classes.</p>
+                                <p>This meant that we couldn't just patch things up. We had to rethink and rework the entire architecture.</p>
+
+                                <p>Looking back at our first setup, several issues became obvious :</p>
+                                    <ul>
+                                        <li><p>Misunderstanding the responsibility of core multiplayer classes (GameMode, GameState, PlayerState, PlayerController)</p></li>
+                                        <li><p>Placing gameplay logic in the wrong classes or execution contexts</p></li>
+                                        <li><p>Using replication as a “fix” instead of designing systems with server authority in mind</p></li>
+                                        <li><p>Overusing RPCs where replicated state would have been more appropriate</p></li>
+                                        <li><p></p></li>
+                                    </ul>
+
+                                <p>And this is what we finally ended up with.</p>
+
+                                <h3>Our Final Multiplayer Architecture</h3>
+
+                                -->
 
                             </div>
 
