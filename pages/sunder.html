@@ -473,7 +473,26 @@
 
                                 <p>From that point on, new systems were implemented in the most appropriate Unreal classes whenever it was possible.</p>
 
+                                <ul>
+                                    <li><p>Day/Night cycle implemented in the GameState, as it affected the shared environment and needed to be replicated consistently to all players.</p></li>
+                                    <li><p>Tutorial UI system implemented in the PlayerController, running on the owning client only, as it was purely local and player-specific.</p></li>
+                                    <li><p>Match start validation handled by the GameMode, as it relied on server-authoritative logic to ensure both players were ready.</p></li>
+                                </ul>
 
+                                <p>But for some systems, already deeply integrated into the Character,
+                                we intentionally left them there to avoid introducing unnecessary risk late in production.</p>
+
+                                <p>While not ideal from a pure architectural standpoint, 
+                                this decision allowed us to keep the project stable and finish development successfully.</p>
+
+                                <p>And that's more or less where this journey ends !</p>
+
+                                <p class="disclaimer">Despite the difficulties faced during development, 
+                                working on this multiplayer system allowed me to build a solid understanding of multiplayer logic and theory, 
+                                as well as Unreal Engine's specificities and its multiplayer framework.</p>
+
+                                <p class="disclaimer">It also sparked a strong interest in pushing these concepts further in future projects,
+                                by exploring additional Unreal systems and more advanced multiplayer topics !</p>
 
                                 <!--
 
