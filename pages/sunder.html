@@ -297,7 +297,7 @@
                                 
                                 <hr>
 
-                                 <!-- PART 3 : LAGS AND SYNCHRONISATION -->
+                                <!-- PART 3 : LAGS AND SYNCHRONISATION -->
 
                                 <div class="synchronization-sub-part-one">
                                     <h2>But we still had a problem...</h2>
@@ -389,17 +389,21 @@
 
                                 <hr>
                                 
+                                <!-- PART 4 : MULTIPLAYER ARCHITECTURE -->
+                                
+                                <h2>And then came the architecture problems...</h2>
 
-                                <!--<h3>And so, this was our first Multiplayer Architecture.</h3>-->
 
                                 
-                                <h2>And then came the architecture problems.</h2>
-                                
-                                
+                                <h3>Early Architecture & First Implementation</h3>
+
                                 <p>Our idea was simple,</p>
-                                <p>We planned to organize the multiplayer code almost the same way we usually do in single-player projects, following Unreal's standard class hierarchy.</p>
+                                <p>At the beginning of the project we planned to organize the multiplayer code almost the same way we usually do in single-player projects, 
+                                following Unreal's standard class hierarchy.</p>
+
                                 <p>The only difference was that we tried to "separate things logically".</p>
                                 <p>One place for what we considered server-side logic, and another for what we considered client-side logic.</p>
+
 
                                 <!--Architecture Diagram of classes ? Maybe through a link ?
                                 Simplified schema-->
@@ -407,37 +411,84 @@
                                 <figure class="first-archi-figure figure-default-style">
                                     <img class="buildsuccess-img dark-theme-img" src="../images/WrongArchi_Shema_Light.png" alt="Simple schema showing first code architecture"/>
                                     <img class="buildsuccess-img light-theme-img" src="../images/WrongArchi_Shema_Dark.png" alt="Simple schema showing first code architecture"/>
-                                    <figcaption class="figcaption-default-style">Our first and so wrong architecture...</figcaption>
+                                    <figcaption class="figcaption-default-style">Pretty much what our first architecture was...</figcaption>
                                 </figure>
 
-                                <!--
-                                <p>On paper, it sounded reasonable.</p>
-                                <p>But obviously we were wrong ...</p>
+                                <p class="disclaimer">At this stage, our understanding of Unreal's multiplayer framework was still incomplete,
+                                and most gameplay logic gradually ended up centralized inside the Character class.</p>
+                                
+                                <h3>Production Constraints & Technical Debt</h3>
 
-                                <p>And so, we ran into several issues :</p>
+                                <p>As development progressed, this architecture started to show its limits.</p>
+
+                                 <p>We ran into several issues like :</p>
                                 <ul>
                                     <li><p>Confusion about where code should actually live ( GameMode, PlayerController, Character … ),</p></li>
                                     <li><p>Client-side code executing logic that should have been server-authoritative,</p></li>
                                     <li><p>Replicated variables being updated in the wrong place, leading to desynchronization,</p></li>
                                     <li><p>RPCs being called from invalid contexts or at the wrong time.</p></li>
                                 </ul>
+                         
+                                <p>Because of that, adding new gameplay features became more complex, 
+                                debugging issues took more time, and responsibilities between classes were no longer clearly defined. </p>
 
-                                <p>As the project grew, this architecture became increasingly difficult to scale, 
-                                and the tight coupling between client and server logic turned debugging into a constant struggle.</p>
+                                <p>This is where I realized we needed to take a step back.</p>
+
+
+
+                                <h3>Discovering the Unreal Framework</h3>
+
+                                <p>I realized that we had simply skipped a crucial step: 
+                                Properly understanding Unreal's multiplayer framework and the intended role of its core classes.</p>
                                 
-                                <p>And so, we took a step back, and I realized that I might have missed something.</p>
-
-                                <h3>Discovering the right Unreal Multiplayer Framework</h3>
+                                <p>And so, I went back to dig into documentation and Unreal forums.</p>
 
 
+                                <figure class="image-and-sourcelogo figure-default-style">
+
+                                        <img class="dark-theme-img" src="../images/Unreal_Framework_Resized.png"/>
+                                        <img class="light-theme-img" src="../images/Unreal_Framework_Resized.png"/>
+
+                                        <div class="short-answer-source-img-superposedbox source-img">
+                                            <img class="source-img short-answer-source-img dark-theme-img" src="../images/UnrealForum_Logo_Icon_Light.png" alt="Unreal forum title image"/>
+                                            <img class="source-img short-answer-source-img light-theme-img" src="../images/UnrealForum_Logo_Icon_Dark.png" alt="Unreal forum title image"/>
+                                        </div>
+                                </figure>
+
+                                <p>Unreal provides a clear multiplayer-oriented architecture, with well-defined responsibilities for classes such as GameMode, 
+                                GameState, PlayerController, PlayerState and Character.</p>
+
+                                <p>And we absolutely weren't doing it right...</p>
+
+                                <p class="disclaimer">At this point, fully rewriting the architecture from scratch was no longer a realistic option.</p>
+                                <p class="disclaimer">The project was already well advanced, the team was dependent on existing systems, and time constraints made a full refactor too risky.</p>
+
+                                
+
+                                <h3>Progressive Improvements & Decisions</h3>
+
+                                <p>Given the constraints, we made a pragmatic decision :</p>
+                                <p>Instead of rewriting everything, we focused on improving the architecture incrementally, 
+                                applying best practices whenever possible without breaking existing systems.</p>
+
+                                <p>From that point on, new systems were implemented in the most appropriate Unreal classes whenever it was possible.</p>
 
 
 
+                                <!--
 
-                                <p>I realized that we had simply skipped a crucial step : <br>
-                                Unreal has its own multiplayer framework and a clear definition of the role of its core classes.</p>
                                 <p>This meant that we couldn't just patch things up. We had to rethink and rework the entire architecture.</p>
 
+                                <hr>
+
+                                <h2>Progressive Improvements & Better Use of the Framework</h2>    
+
+                                <p>As production progressed, rewriting the architecture from scratch became unrealistic due to time constraints and team dependencies.</p>
+                                <p></p>
+
+
+
+                                
                                 <p>Looking back at our first setup, several issues became obvious :</p>
                                     <ul>
                                         <li><p>Misunderstanding the responsibility of core multiplayer classes (GameMode, GameState, PlayerState, PlayerController)</p></li>
