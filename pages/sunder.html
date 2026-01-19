@@ -387,17 +387,30 @@
 
                                 </div>
 
-                                <!--
-
-                                <h3>And so, this was our first Multiplayer Architecture.</h3>
+                                <hr>
                                 
-                                Architecture Diagram of classes ? Maybe through a link ?
-                                Simplified schema
 
+                                <!--<h3>And so, this was our first Multiplayer Architecture.</h3>-->
+
+                                
+                                <h2>And then came the architecture problems.</h2>
+                                
+                                
                                 <p>Our idea was simple,</p>
                                 <p>We planned to organize the multiplayer code almost the same way we usually do in single-player projects, following Unreal's standard class hierarchy.</p>
-                                <p>The only difference was that we tried to “separate” things logically:</p>
+                                <p>The only difference was that we tried to "separate things logically".</p>
                                 <p>One place for what we considered server-side logic, and another for what we considered client-side logic.</p>
+
+                                <!--Architecture Diagram of classes ? Maybe through a link ?
+                                Simplified schema-->
+
+                                <figure class="first-archi-figure figure-default-style">
+                                    <img class="buildsuccess-img dark-theme-img" src="../images/WrongArchi_Shema_Light.png" alt="Simple schema showing first code architecture"/>
+                                    <img class="buildsuccess-img light-theme-img" src="../images/WrongArchi_Shema_Dark.png" alt="Simple schema showing first code architecture"/>
+                                    <figcaption class="figcaption-default-style">Our first and so wrong architecture...</figcaption>
+                                </figure>
+
+                                <!--
                                 <p>On paper, it sounded reasonable.</p>
                                 <p>But obviously we were wrong ...</p>
 
@@ -415,6 +428,11 @@
                                 <p>And so, we took a step back, and I realized that I might have missed something.</p>
 
                                 <h3>Discovering the right Unreal Multiplayer Framework</h3>
+
+
+
+
+
 
                                 <p>I realized that we had simply skipped a crucial step : <br>
                                 Unreal has its own multiplayer framework and a clear definition of the role of its core classes.</p>
