@@ -368,6 +368,15 @@ a{
 .project-section{
     margin-bottom: 2rem;
     border-bottom: 0.2rem solid var(--active-color-frame-border);
+    text-align: justify;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    padding: 8px;
+}
+
+.project-section h2{
+    font-style: italic;
+    margin-bottom: 40px;
 }
 
 .info-box{
@@ -386,17 +395,6 @@ a{
 
 }
 
-.section-part{
-    overflow-wrap: anywhere;
-    word-break: normal;
-    text-align: justify;
-    padding: 8px;
-}
-
-.section-part h2{
-    font-style: italic;
-    margin-bottom: 40px;
-}
 
 
 

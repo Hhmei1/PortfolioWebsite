@@ -264,6 +264,11 @@
 
                                 <p class="disclaimer">With a functional dedicated server workflow in place, the next challenge was understanding how multiplayer systems actually behave at runtime.
                                 This section focuses on the core networking concepts that progressively shaped the project's multiplayer architecture.</p>
+                            
+
+                            </div>
+
+                            <div class="section-part multiplayer-basics">
 
                                 <!-- PART 2 : MULTIPLAYER CODING BASICS -->
 
@@ -296,7 +301,9 @@
                                 <p>We throught ...</p>
                                 
                                 <hr>
+                            </div>
 
+                            <div class="section-part sync-and-lags">
                                 <!-- PART 3 : LAGS AND SYNCHRONISATION -->
 
                                 <div class="synchronization-sub-part-one">
@@ -388,7 +395,10 @@
                                 </div>
 
                                 <hr>
-                                
+                            </div>
+
+                            <div class="section-part multiplayer-architecture">  
+
                                 <!-- PART 4 : MULTIPLAYER ARCHITECTURE -->
                                 
                                 <h2>And then came the architecture problems...</h2>
@@ -502,10 +512,7 @@
                                 <p class="disclaimer">It also sparked a strong interest in pushing these concepts further in future projects,
                                 by exploring additional Unreal systems and more advanced multiplayer topics !</p>
 
-                            
-
                             </div>
-
 
                         </section>
 
@@ -515,37 +522,112 @@
 
 
                         <section id="techart-tools" class="project-section">
+
+                            <!--Some disclaimer here maybe ?-->
+
+                            <!--<hr>-->
+
+                            <div class="section-part landscape-blending">
+
+                                <!-- PART 1 : LANDSCAPE TEXTURE BLENDING -->
+                                <h2>Landscape Texture Blending</h2>
+
+                                <h3>Problem</h3>
+                                <p>We wanted the sand landscape texture to visually blend with scene elements planted into the ground, such as rocks and buildings.</p>
+
+                                <h3>Solution</h3>
+
+                                <p>Here I used Runtime Virtual Textures to capture selected landscape material attributes (base color, roughness, specular and normal), along with height information derived from absolute world position.
+                                Then theses RVTs were exposed through a reusable material function, allowing consistent terrain blending across all relevant scene objects.</p>
+                                
+                                <figure class="figure-default-style">
+                                    <img class="" src="../images/Rvt_MaterialFonction_Show.png" alt="Rvt Landscape Blend Material Fonction Screen"/>
+                                    
+                                    <figcaption class="figcaption-default-style">Material fonction for landscape texture blend</figcaption>
+                                </figure>
+                                
+                                <h3>Result</h3>
+
+                                <figure class="figure-default-style">
+
+                                    <video autoplay loop muted preload="none" >
+                                        <source src="../videos/Sunder_LandscapeBlending_Show.mp4" type="video/mp4">
+                                    </video>
+
+                                    <figcaption class="figcaption-default-style">Landscape texture blending on objects using RVT</figcaption>
+                                </figure>
+
+                                <p></p>
+
+                            </div>
+
+                            <hr>
+
+                            <div class="section-part landscape-wind-effect">
+
+                                <!-- PART 2 : LANDSCAPE WIND PAINTING -->
+                                <h2>Landscape Painting & Wind Effect</h2>
+
+                                <h3>Problem</h3>
+                                <p>We wanted to introduce a subtle wind effect in the sand to bring life to large landscape areas, without relying on heavy VFX or volumetric solutions.</p>
+                                <p>Several approaches were tested, including VFX and volumetric fog, but they either proved too costly in performance or lacked the level of control and flexibility required.</p>
+
+                                <h3>Solution</h3>
+
+                                <p>The final approach relies on a simple animated texture blended directly into the landscape material.
+                                By using a panning texture layered through a Landscape Layer Blend, 
+                                the wind effect can be painted directly onto the terrain using Unreal Engine's landscape painting tools.</p>
+
+                                <figure class="figure-default-style">
+                                    <img class="" src="../images/Landscape_WindEffect_Material_Screen.png" alt="Landscape wind effect Material Fonction Screen"/>
+                                    
+                                    <figcaption class="figcaption-default-style">Wind effect in landscape master material</figcaption>
+                                </figure>
+
+                                
+
+                                <h3>Result</h3>
+
+                                <figure class="figure-default-style">
+
+                                    <video autoplay loop muted preload="none" >
+                                        <source src="../videos/Sunder_LandscapeWindPainting_Show.mp4" type="video/mp4">
+                                    </video>
+
+                                    <figcaption class="figcaption-default-style">Wind effect painting on landscape</figcaption>
+                                </figure>
+                            </div>
+
+                            <hr>
+
+                            <div class="section-part footprints">
+
+                                <!-- PART 3 : FOOTPRINTS ! -->
+                                <h2></h2>
                             
-                            <hr>
+                            </div>
                             
-                            <!-- PART 1 : LANDSCAPE TEXTURE BLENDING -->
-                            <h2>Landscape Texture Blending</h2>
-                            <figure class="figure-default-style">
-
-                                <video autoplay loop muted preload="none" >
-                                    <source src="../videos/Sunder_LandscapeBlending_Show.mp4" type="video/mp4">
-                                </video>
-
-                                <figcaption class="figcaption-default-style">Landscape texture blending on objects using RVT</figcaption>
-                            </figure>
-
-                            <hr>
-
-                            <!-- PART 2 : LANDSCAPE WIND PAINTING -->
-                            <h2>Landscape Painting & Wind Effect</h2>
-
-                            <figure class="figure-default-style">
-
-                                <video autoplay loop muted preload="none" >
-                                    <source src="../videos/Sunder_LandscapeWindPainting_Show.mp4" type="video/mp4">
-                                </video>
-
-                                <figcaption class="figcaption-default-style">Wind effect painting on landscape</figcaption>
-                            </figure>
-
-                            <hr>
-
                         </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                         <section id="learning" class="project-section">
                             <h2>Learnings</h2>
