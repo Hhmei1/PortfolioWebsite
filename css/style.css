@@ -82,7 +82,7 @@ a{
 
 .references-links{
 
-     display: inline-block;
+    display: inline-block;
     text-transform: none;
     transition: 
         color 0.25s ease, 
@@ -98,7 +98,18 @@ a{
 
 }
 
+.image-link{
+    display: inline-block;
+    transition: 
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
 
+.image-link:hover,
+.image-link:focus-visible{
+    transform: scale(1.01);
+    filter: brightness(1.05);
+}
 
 
 /*  List Custom Anchors */
