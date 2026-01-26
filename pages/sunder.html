@@ -532,7 +532,7 @@
                                 <!-- PART 1 : LANDSCAPE TEXTURE BLENDING -->
                                 <h2>Landscape Texture Blending</h2>
 
-                                <h3>Problem</h3>
+                                <h3>Problematic</h3>
                                 <p>We wanted the sand landscape texture to visually blend with scene elements planted into the ground, such as rocks and buildings.</p>
 
                                 <h3>Solution</h3>
@@ -568,7 +568,7 @@
                                 <!-- PART 2 : LANDSCAPE WIND PAINTING -->
                                 <h2>Landscape Painting & Wind Effect</h2>
 
-                                <h3>Problem</h3>
+                                <h3>Problematic</h3>
                                 <p>We wanted to introduce a subtle wind effect in the sand to bring life to large landscape areas, without relying on heavy VFX or volumetric solutions.</p>
                                 <p>Several approaches were tested, including VFX and volumetric fog, but they either proved too costly in performance or lacked the level of control and flexibility required.</p>
 
@@ -596,6 +596,7 @@
 
                                     <figcaption class="figcaption-default-style">Wind effect painting on landscape</figcaption>
                                 </figure>
+
                             </div>
 
                             <hr>
@@ -603,8 +604,80 @@
                             <div class="section-part footprints">
 
                                 <!-- PART 3 : FOOTPRINTS ! -->
-                                <h2></h2>
-                            
+                                <h2>Footprints</h2>
+
+                                <h3>Problematic</h3>
+                                <p>Footprints were a key gameplay element of the project, especially for the tracking mechanics.</p>
+                                <p>During  the entire match, both players constantly leave footprints in the sand. <br> These traces needed to be :</p>
+                                <ul>
+                                    <li><p>satisfying to read for the player,</p></li>
+                                    <li><p>a clear movement feedback,</p></li>
+                                    <li><p>visible and readable by the other player (replication),</p></li>
+                                    <li><p>and efficient in terms of performance.</p></li>
+                                </ul>
+                                <p>Finding a solution that balanced visual quality, gameplay readability, replication, and performance quickly became a major technical and artistic challenge.</p>
+                                
+                                <h3>First approach </h3>
+                                <p>My first approach was based on landscape displacement.</p>
+
+                                <figure class="figure-default-style">
+
+                                    <video autoplay loop muted preload="none" >
+                                        <source src="../videos/SundRunner_prototype.mp4" type="video/mp4">
+                                    </video>
+
+                                    <figcaption class="figcaption-default-style">Using motion matching system and mesh displacement.</figcaption>
+                                </figure>
+
+                                <p>Visually, the result was very convincing and worked well as a prototype.</p>
+
+                                <p>However, this relied on a  conplex third-party plugin, and for a student project, using such solution did not feel appropriate for me.</p>
+                                <p>In addition, at the time, mesh displacement, especially on landscapes combined with Nanite in Unreal Engine 5.4 was still unreliable and not mature enough for a stable production workflow. 
+                                Making it difficult to iterate on or extend.</p>
+                                
+                                <p>So, this prototype mainly served as a visual reference to communicate an intended quality level to the team, rather than a solution we could realistically ship even though reaching this level of fidelity was clearly an objective.</p>
+
+                                <h3>Solution</h3>
+
+                                <p>To address the limitations of the initial prototype, I redesigned the footprint system around a decal-based solution, using Parallax Occlusion Mapping (POM) to simulate depth directly in the material.</p>
+
+                                <figure class="figure-default-style">
+                                    <img class="" src="../images/MM_Footprints_PMO_Material_Image_Thumb.png" alt="Footprint Master Material Image Capture"/>
+                                    
+                                    <figcaption class="figcaption-default-style">Footprint master material blueprint</figcaption>
+                                </figure>
+
+                                <p>With some modification of the original POM material fonction ( thx for the help Eve ;) ) </p>
+
+                                <figure class="figure-default-style">
+                                    <img class="" src="../images/Custom_POM_MF_Image_Thumb.png" alt="Custom POM material fonction"/>
+                                    
+                                    <figcaption class="figcaption-default-style">Custom POM material fonction blueprint</figcaption>
+                                </figure>
+
+                                <p>And then,</p>
+                                <p>Footprints are generated through a decal projection logic triggered by animation events and managed using a pool system, 
+                                ensuring accurate placement, stable performance, and scalability in a multiplayer context</p>
+
+                                <h3>Result</h3>
+
+                                <figure class="figure-default-style">
+
+                                    <video autoplay loop muted preload="none" >
+                                        <source src="../videos/Sunder_Footprint_show_video.mp4" type="video/mp4">
+                                    </video>
+
+                                    <figcaption class="figcaption-default-style">Footprint used to hunt</figcaption>
+                                </figure>
+
+                                <figure class="figure-default-style side-to-side-images">
+                                    <img  src="../images/FootPrintsAndStribes_Day.png" alt="Footprint and streaks at day image"/>
+                                    <img  src="../images/FootPrintsAndStribes_Night.png" alt="Footprint and streaks at night image"/>
+                                    
+                                    <figcaption class="figcaption-default-style">Day & Night Footprints</figcaption>
+                                </figure>
+
+
                             </div>
                             
                         </section>

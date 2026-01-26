@@ -590,6 +590,33 @@ hr{
 }
 
 
+.side-to-side-images{
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-areas: 
+    "a b"
+    "c d";
+    gap: 0.5rem;
+}
+
+
+.side-to-side-images :nth-child(1){
+    grid-area: a;
+    height: 100%;
+}
+
+.side-to-side-images :nth-child(2){
+    grid-area: b;
+    height: 100%;
+}
+
+.side-to-side-images figcaption{
+    grid-area: d;
+}
+
+
+
+
 
 /*=============== HOME PAGE SECTIONS ==============*/
 
