@@ -473,7 +473,7 @@ a{
 }
 
 .contributions-parts p{
-    text-align: justify;
+    text-align: center;
 }
 
 
@@ -590,6 +590,7 @@ hr{
 }
 
 
+
 .side-to-side-images{
     display: grid;
     grid-template-columns: 0.5fr 0.5fr;
@@ -598,7 +599,6 @@ hr{
     "c d";
     gap: 0.5rem;
 }
-
 
 .side-to-side-images :nth-child(1){
     grid-area: a;
@@ -615,6 +615,67 @@ hr{
 }
 
 
+
+
+.learning-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "a b"
+    "c d"
+    "e f";
+    gap: 0.5rem;
+}
+
+.learning-part{
+    text-align: center;
+
+}
+
+.learning-part img{
+    width: 25%;
+    margin-left: 38%;
+}
+
+/* Point on the first child and all elements inside*/
+/*.learning-part > :first-child * */
+
+/* Resize the icons images */
+/*.learning-part > :nth-child(2){
+   width: 25%;
+   
+}*/
+
+
+.learning-grid :nth-child(1){
+    grid-area: a;
+
+}
+
+.learning-grid :nth-child(2){
+    grid-area: b;
+    
+}
+
+.learning-grid :nth-child(3){
+    grid-area: c;
+   
+}
+
+.learning-grid :nth-child(4){
+    grid-area: d;
+    
+}
+
+.learning-grid :nth-child(5){
+    grid-area: e;
+   
+}
+
+.learning-grid :nth-child(6){
+    grid-area: f;
+
+}
 
 
 
