@@ -959,11 +959,18 @@ using the links / targets in the nav header */
 
     
     }
-   
-    .page-header{ 
 
-        overflow-y: auto;
-        scrollbar-width: none;
+    .page-content{
+        height: 100%;
+    }
+   
+    .page-header{
+        position: fixed;
+        background-color:transparent;
+        z-index: 5;
+
+        width: min-content;
+
     }
 
     .page-title{
@@ -983,6 +990,7 @@ using the links / targets in the nav header */
         gap: 0.8rem;
         font-size: 1.2rem;
     }
+
 
     .theme-toggle{
         font-size: 1.2rem; 
@@ -1004,4 +1012,62 @@ using the links / targets in the nav header */
         font-weight: 400;
         margin-top: 0.2rem;
     }
+
+    /*---- ABOUT ME SECTION ---- */
+
+    .section-aboutme{
+
+        font-size: 0.9rem;
+        text-align: justify;
+
+        display: flex;
+        align-items: end;
+        justify-content: end;
+
+        height: 100%;
+
+    }
+
+    #aboutme-scroll-box{
+        width: 100%;
+        height: 100%;
+
+        padding-top: 150%;
+
+        overflow-y: auto;
+
+        overscroll-behavior: contain;
+        scrollbar-width: none;
+    }
+
+
+
+    /*---- PROJECTS SECTION ---- */
+
+    /* Projects list content section*/
+    .section-projectslist{
+
+    }
+
+
+
+    /* Project list element <ol> */
+    .projectslist{
+        list-style: none;
+        font-size: 3rem;
+        text-align: right;
+        
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    /* Project list scroll */
+    .projects-scroll{
+        max-height: 100%;
+        min-height: 0;
+        padding-right: 2%;
+        padding-top: 150%;
+    }
+
 }
