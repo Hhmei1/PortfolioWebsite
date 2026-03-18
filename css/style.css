@@ -32,9 +32,6 @@
 
 }
 
-html{
-    box-sizing: border-box;
-}
 
 
 body{
@@ -242,6 +239,8 @@ a{
     "top-left-corner top-box top-right-corner"
     "left-box main-box right-box"
     "bot-left-corner bot-box bot-right-corner";
+
+    position: fixed;
 
 }
 
@@ -727,12 +726,15 @@ hr{
 
 /* Projects list content section*/
 .section-projectslist{
-    position: absolute; /*Relative to page-content box */
-    right: 5vw;
-    top: 50px;
 
-    width: min(800px, 80vw);
+    height: 100%;
+    width: 100%;
+
+    /*position: absolute; /*Relative to page-content box */ /* WTFFFFF*/
+
 }
+
+
 
 /* Project list element <ol> */
 .projectslist{
@@ -773,6 +775,7 @@ using the links / targets in the nav header */
     visibility: hidden;
     pointer-events: none;
     /*scroll-margin-top: 70px;*/
+    position: absolute;
 
     transform: translateY(6px);
     transition:
@@ -786,6 +789,7 @@ using the links / targets in the nav header */
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    position: static;
 
     transform: translateY(0);
     transition:
@@ -799,6 +803,7 @@ using the links / targets in the nav header */
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    position: static;
     transform: translateY(0);
 }
 
