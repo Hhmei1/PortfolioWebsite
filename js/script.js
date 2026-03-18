@@ -11,7 +11,7 @@ function handleHeaderOpacity(scrollElement) {
     if (!mediaQuery.matches) return;
 
     const scrollTop = scrollElement.scrollTop;
-    const maxScroll = 200;
+    const maxScroll = 400;
 
     let opacity = 1 - scrollTop / maxScroll;
     opacity = Math.max(0, Math.min(1, opacity));
