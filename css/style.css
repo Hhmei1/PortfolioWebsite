@@ -125,6 +125,11 @@ a{
 
 }
 
+.projectslist p{
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
 .nav-list a:hover,
 .nav-list a:focus-visible,
 .projectslist a:hover,
