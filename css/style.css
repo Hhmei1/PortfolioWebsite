@@ -38,9 +38,12 @@ html{
 
 
 body{
+
     height: 100vh;
-    /*overflow-y: auto;*/
+    width: 100vw;
+
     overflow: hidden;
+
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     line-height: 1.5;
@@ -156,8 +159,6 @@ a{
     /* Add a cool animation later */
 }
 
-
-
 .disclaimer{
     text-align: center;
     font-style: italic;
@@ -180,36 +181,20 @@ a{
     margin-top: 0.5rem;
 }
 
+/* Using 2 image dark/light superposed so img adapt to the theme*/
+/* Did this bc I only had the .png format no JS wanted*/
 
-/* ================ GLOBAL LAYOUT ================ */
-
-
-/* SHELL */
-.page-shell{
-
-    
-    height: 100%;
-    width: 100%;
-
-    padding: 2%;
-
-    background-color: var(--active-color-shell-background);
-    color: var(--active-color-text);
-
-    /*display: flex;
-    flex-direction: column;
-    align-items: center;*/
-
+.superposed-images{
     display: grid;
-    grid-template-columns: 0.1fr 1fr 0.1fr;
-    grid-template-rows: 0.2fr 1fr 0.2fr;
-
-    grid-template-areas:
-    "top-left-corner top-box top-right-corner"
-    "left-box main-box right-box"
-    "bot-left-corner bot-box bot-right-corner";
-
 }
+
+
+.superposed-images img{ 
+    grid-area: 1 / 1;
+    width: 100%;
+    height: auto;
+}
+
 
 /* THEME SWITCH */
 
@@ -231,21 +216,34 @@ a{
 }
 
 
-/* Using 2 image dark/light superposed so img adapt to the theme*/
-/* Did this bc I only had the .png format no JS wanted*/
+/* ================ GLOBAL LAYOUT ================ */
 
 
-.superposed-images{
-    display: grid;
-}
+/* SHELL */
+.page-shell{
 
-
-.superposed-images img{ 
-    grid-area: 1 / 1;
+    
+    height: 100%;
     width: 100%;
-    height: auto;
-}
 
+
+    background-color: var(--active-color-shell-background);
+    color: var(--active-color-text);
+
+    /*display: flex;
+    flex-direction: column;
+    align-items: center;*/
+
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 5% 90% 5%;
+
+    grid-template-areas:
+    "top-left-corner top-box top-right-corner"
+    "left-box main-box right-box"
+    "bot-left-corner bot-box bot-right-corner";
+
+}
 
 
 /* FRAME */
@@ -265,14 +263,16 @@ a{
 
     grid-area: main-box;
 
-}
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "header content";
+
+    padding: 2%;
+    
 
 
-/* Box background for later ... */
-.visual-background-area{
-    z-index: 0;
-    min-width: 0;
-    flex: 1 1 auto;
 }
 
 .top-box{
@@ -291,26 +291,24 @@ a{
     grid-area: right-box;
 }
 
-
+/* Box background for later ... */
+/*.visual-background-area{
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}*/
 
 
 /*---- PAGE HEADER ZONE ( LEFT )---- */
 
 /* Header and Left Box*/
 .page-header{ 
-    /* Front */
-    z-index: 1;
+
+    grid-area: header;
 
     /*Vertical Structure*/
     display: flex;
     flex-direction: column;
-
-    /* Margin & Padding */
-    padding-left: 3vw;
-    padding-top: 3vh;
-
-    /* Left Side */
-    width: 40%;
 
     overflow-y: auto;
     scrollbar-width: none;
@@ -359,22 +357,11 @@ a{
 
 /* Right Box */
 .page-content{ 
-    /* Front */
-    z-index: 1;
-
-    /* Right Side */
-    width: 60%;
-
-    /* Margin & Padding */
-    padding: 3vh 3vw;
-    
-    box-sizing: border-box;
-    
-    display: flex; 
-    position: relative; /* Reference for childs positions */
-
-    overflow: hidden;
+    grid-area: content;
+    height: 100%;
 }
+
+
 
 /* SUNDER PAGE CONTENT AREA */
 .sunder-page-content{
@@ -712,33 +699,28 @@ hr{
 /*---- ABOUT ME SECTION ---- */
 
 .section-aboutme{
-    /* Bottom Right Position in Box */
-    position: absolute; /*Relative to page-content box */
 
-    right: 4vw;
-    
-    max-height: 70vh;
-    width: 250px;
-
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-    
     font-size: 1.3rem;
     text-align: justify;
+
+    display: flex;
+    align-items: end;
+    justify-content: end;
+
+    height: 100%;
+
 }
 
-/* Aboutme Scrool box */
-.aboutme-scroll{
-    /*max-height: 80vh;*/
-
-    flex: 1;
-    min-height: 0;
+#aboutme-scroll-box{
+    width: 30%;
+    height: 50%;
 
     overflow-y: auto;
-    overflow-x: hidden;
+
+    overscroll-behavior: contain;
     scrollbar-width: none;
 }
+
 
 
 /*---- PROJECTS SECTION ---- */
@@ -840,7 +822,7 @@ using the links / targets in the nav header */
 /* Footer */
 .page-footer{
     align-self: flex-start; /* Allow to be self align ( normaly align by shell ) */
-    margin-left: 3vw;
+    margin-left: 1vw;
 }
 
 .page-footer p{
@@ -947,11 +929,4 @@ using the links / targets in the nav header */
 
 
 
-/*---- MEDIA QUERYS ---- */
-
-@media (max-width:750px) {
-    #shell{
-
-    }
-}
 
