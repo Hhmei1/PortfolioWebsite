@@ -1067,19 +1067,10 @@ using the links / targets in the nav header */
 
     z-index: 1;
 
-    /*transform: rotate(0.75turn);*/
-
-    /*
-    position: absolute;
-    left: calc((100vw - 90vw)/2 - 70px);
-    top: calc((100vh - 90vh)/2 + 40px);
-    */
-
-
-    /*height: 100%;*/
     display: flex;
     align-items: end;
     writing-mode: sideways-lr;
+    padding-top: 8%;
 }
 
 .return-home-link{
@@ -1091,7 +1082,7 @@ using the links / targets in the nav header */
 .return-home-link:hover{
 
     color: var(--active-color-text-hover);
-    transform: translateX(6px);
+    transform: translateX(-6px);
 }
 
 
@@ -1160,6 +1151,16 @@ using the links / targets in the nav header */
         width: 15px;
         height: 15px;
     }
+
+    
+/* Home link */
+
+.home-link-box{
+    font-size: 1.2rem;
+
+}
+
+
 
 
     .page-footer{
