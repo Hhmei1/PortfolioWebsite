@@ -16,7 +16,7 @@ function handleHeaderOpacity(scrollElement) {
     const maxScroll = 400;
 
     let opacity = 1 - scrollTop / maxScroll;
-    opacity = Math.max(0, Math.min(1, opacity));
+    opacity = Math.max(0.3, Math.min(1, opacity));
 
     header.style.opacity = opacity;
 }
