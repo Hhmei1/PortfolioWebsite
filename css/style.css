@@ -693,6 +693,48 @@ hr{
 
 }
 
+.game-poster{
+    max-height: 399px;
+    max-width: 282px;
+    text-align: center;
+}
+
+
+#some-media{
+    display: grid;
+    grid-template-columns: 1fr 2fr ;
+}
+
+.game-images{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.link-box{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2%;
+    align-items: center;
+
+    padding: 4%;
+}
+
+.link-box a{
+    width: 150px;
+    display: inline-block;
+    transition: 
+        transform 0.5s ease,
+        filter 0.25s ease;
+}
+
+.link-box a:hover,
+.link-box a:focus-visible{
+    transform: scale(1.1);
+    filter: brightness(0.2);
+}
+
+
 
 
 /*=============== HOME PAGE SECTIONS ==============*/

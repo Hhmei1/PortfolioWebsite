@@ -1,4 +1,6 @@
 
+/* Homepage header opacity fade effect for mobile layout */
+
 const header = document.querySelector('.page-header');
 const aboutme = document.querySelector('#aboutme-scroll-box');
 const projects = document.querySelector('.projects-scroll');
@@ -26,3 +28,4 @@ aboutme.addEventListener('scroll', () => {
 projects.addEventListener('scroll', () => {
     handleHeaderOpacity(projects);
 });
+
