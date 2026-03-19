@@ -4,7 +4,11 @@
 const header = document.querySelector('.page-header');
 const aboutme = document.querySelector('#aboutme-scroll-box');
 const projects = document.querySelector('.projects-scroll');
+
+
+
 const isProjectPage = document.querySelector('.project-page')
+const projectContent = document.querySelector('.sunder-page-content')
 
 const mediaQuery = window.matchMedia('(max-width: 768px)');
 
@@ -39,6 +43,9 @@ if (projects) {
 
 
 
+
+
+
 const navLinks = document.querySelectorAll('.nav-link');
 const menuLink = document.querySelector('.open-menu');
 
@@ -46,17 +53,31 @@ const menuLink = document.querySelector('.open-menu');
 
 if (isProjectPage) {
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      header.classList.add('closed');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => { header.classList.add('closed'); } );
     });
-  });
 
-  if (menuLink) {
-    menuLink.addEventListener('click', () => {
-      header.classList.remove('closed');
-    });
-  }
+
+    if (isProjectPage) { 
+        projectContent.addEventListener('scroll', () => { 
+            if (projectContent.scrollTop > 200){
+                header.classList.add('closed'); 
+            } 
+            else{
+                header.classList.remove('closed');
+            }
+        }); 
+    }
+
+
+    if (menuLink) {
+
+        menuLink.addEventListener('click', () => {
+            header.classList.remove('closed');
+        });
+    }
+
+  
 
 }
 
