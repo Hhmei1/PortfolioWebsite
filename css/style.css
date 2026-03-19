@@ -889,6 +889,7 @@ hr{
 
 .contact-links a{
     font-size: 1.5rem;
+    padding-bottom: 2%;
 
     transition: 
         color 0.25s ease, 
@@ -1215,12 +1216,19 @@ using the links / targets in the nav header */
         gap: 1.2rem;
     }
 
+    .projectslist:first-child{
+        padding-top: 180%;
+    }
+
     /* Project list scroll */
     .projects-scroll{
         max-height: 100%;
         min-height: 0;
         padding-right: 2%;
-        padding-top: 150%;
+    }
+
+    .infos-links a{
+        width: 50%;
     }
 
 }
