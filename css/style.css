@@ -813,20 +813,6 @@ hr{
 /*---- INFOS SECTION ---- */
 
 
-.link-box a{
-    width: 150px;
-    display: inline-block;
-    transition: 
-        transform 0.5s ease,
-        filter 0.25s ease;
-}
-
-.link-box a:hover,
-.link-box a:focus-visible{
-    transform: scale(1.1);
-    filter: brightness(0.2);
-}
-
 .section-infos{
     height: 100%;
 }
@@ -847,12 +833,16 @@ hr{
 
     padding-right: 20px;
 
+    gap: 2%;
+
 }
 
 .infos-links a{
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: end;
+
+    width: 30%;
 
     transition: 
         transform 0.5s ease,
@@ -860,7 +850,7 @@ hr{
 }
 
 .infos-links a img{
-    width: 50%;
+    width: fit-content;
 }
 
 
@@ -871,9 +861,45 @@ hr{
 }
 
 
+/*---- CONTACT SECTION ---- */
 
 
+#contact{
+    height: 100%;
+}
 
+
+.contact-links{
+    height: 100%;
+    
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+
+    scrollbar-width: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    padding-right: 20px;
+
+    gap: 2%;
+}
+
+.contact-links a{
+    font-size: 1.5rem;
+
+    transition: 
+        color 0.25s ease, 
+        transform 0.25s ease;
+}
+
+.contact-links a:hover,
+.contact-links a:focus-visible{
+    color: var(--active-color-text-hover);
+    transform: translateX(-6px);
+}
 
 
 
@@ -897,6 +923,16 @@ using the links / targets in the nav header */
         visibility 0s linear 250ms;
 }
 
+/* Avoid image link weird hidding movement*/
+.homepage-content img{
+    visibility: hidden;
+}
+
+.homepage-content:target img{
+    visibility: visible;
+}
+
+
 /* Content display on target */
 .homepage-content:target{
     opacity: 1;
@@ -910,6 +946,8 @@ using the links / targets in the nav header */
         transform 250ms ease,
         visibility 0s;
 }
+
+
 
 /* Display Aboutme by default */
 #aboutme{
