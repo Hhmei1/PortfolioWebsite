@@ -1073,6 +1073,16 @@ using the links / targets in the nav header */
     padding-top: 8%;
 }
 
+.page-home .page-shell .left-box .home-link-box {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.page-sunder .page-shell .left-box .home-link-box{
+    opacity: 1;
+    pointer-events: all;
+}
+
 .return-home-link{
     transition: 
         color 0.25s ease, 
@@ -1141,6 +1151,8 @@ using the links / targets in the nav header */
         font-size: 1.2rem;
     }
 
+   
+
 
     .theme-toggle{
         font-size: 1.2rem; 
@@ -1152,14 +1164,13 @@ using the links / targets in the nav header */
         height: 15px;
     }
 
-    
-/* Home link */
+        
+    /* Home link */
 
-.home-link-box{
-    font-size: 1.2rem;
+    .home-link-box{
+        font-size: 1.2rem;
 
-}
-
+    }
 
 
 
