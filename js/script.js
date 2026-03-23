@@ -48,28 +48,23 @@ if (projects) {
 
 const navLinks = document.querySelectorAll('.nav-link');
 const menuLink = document.querySelector('.open-menu');
+var isHeaderClosed = false;
 
 
 
+// If we are on a project page, click on a link on the nav-list remove header.
 if (isProjectPage) {
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => { header.classList.add('closed'); } );
-    });
+    
+    /*navLinks.forEach(link => {
+        link.addEventListener('click', () => { 
+            header.classList.add('closed');
+            isHeaderClosed = true;
+        } );
 
+    });*/
 
-    if (isProjectPage) { 
-        projectContent.addEventListener('scroll', () => { 
-            if (projectContent.scrollTop > 200){
-                header.classList.add('closed'); 
-            } 
-            else{
-                header.classList.remove('closed');
-            }
-        }); 
-    }
-
-
+    // Click on the menu button link to display header is there is a menulink button.
     if (menuLink) {
 
         menuLink.addEventListener('click', () => {
@@ -77,7 +72,20 @@ if (isProjectPage) {
         });
     }
 
+
+    
+    projectContent.addEventListener('scroll', () => {
+
+            if(projectContent.scrollTop > 150){
+                header.classList.add('closed');
+            }
+            else{
+                header.classList.remove('closed');
+            }  
+    });
+
   
+    
 
 }
 

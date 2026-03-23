@@ -1211,11 +1211,16 @@ using the links / targets in the nav header */
 
     .page-header {
         transform: translateX(0);
-        transition: transform 0.3s;
+        transition: transform 0.4s,
+                    opacity 0.5s;
+
+        opacity: 1;
     }
 
     .page-header.closed{
         transform: translateX(-150%);
+        opacity: 0;
+
     }
 
 
