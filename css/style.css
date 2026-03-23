@@ -1098,6 +1098,12 @@ using the links / targets in the nav header */
 }
 
 
+.header-button-box{
+    opacity: 0;
+    pointer-events: none;
+}
+
+
 /* @ MEDIA QUERYS */
 
 
@@ -1209,6 +1215,7 @@ using the links / targets in the nav header */
     }
 
 
+    /* Header animation */
     .page-header {
         transform: translateX(0);
         transition: transform 0.4s,
