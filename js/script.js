@@ -89,4 +89,4 @@ if (isProjectPage) {
 
 }
 
-console.log(navLinks);
+/*console.log(navLinks);*/
