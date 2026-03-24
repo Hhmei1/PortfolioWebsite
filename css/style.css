@@ -129,6 +129,36 @@ a{
 }
 
 
+/* PAGE TRANSITION */
+
+#page-fade-out{
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    opacity: 0;
+    background-color: black;
+    visibility: visible;
+    pointer-events: none;
+}
+
+#page-fade-out.active{
+   animation: transitionFadeOut 0.5s ease forwards;
+}
+
+@keyframes transitionFadeOut{
+    100%{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
 
 
 

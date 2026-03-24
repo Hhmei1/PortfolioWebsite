@@ -6,13 +6,13 @@ window.addEventListener('load', () => {
   const loader = document.getElementById('intro-loader');
 
   // If I want it only once !
-  /*const alreadySeen = sessionStorage.getItem('introPlayed');
+  const alreadySeen = sessionStorage.getItem('introPlayed');
 
   if (alreadySeen) {
     loader.style.display = 'none';
     document.body.classList.add('site-ready');
     return;
-  }*/
+  }
 
   setTimeout(() => {
     loader.classList.add('hide');
@@ -20,6 +20,39 @@ window.addEventListener('load', () => {
     sessionStorage.setItem('introPlayed', 'true');
   }, 3000);
 });
+
+
+
+/* PAGE TRANSITION */
+
+
+/* Fade Out */
+const transitionOverlay = document.getElementById('page-fade-out');
+const links = document.querySelectorAll('a[href]');
+
+links.forEach(link => {
+  link.addEventListener('click', event => {
+    const href = link.getAttribute('href');
+
+    const isInternalPage =
+        href &&
+        !href.startsWith('#') &&
+        !href.startsWith('mailto:') &&
+        !href.startsWith('tel:') &&
+        !link.hasAttribute('target');
+
+    if (!isInternalPage) return;
+
+    event.preventDefault();
+    transitionOverlay.classList.add('active');
+
+    setTimeout(() => {
+        window.location.href = href;
+    }, 1000);
+  });
+});
+
+
 
 
 
