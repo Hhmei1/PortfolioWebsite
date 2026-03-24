@@ -72,6 +72,59 @@ a{
 
 
 
+/* INTRO LOADER */
+
+#intro-loader{
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: black;
+
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Hidding loader element */
+#intro-loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+
+.intro-content{
+    text-align: center;
+}
+
+.intro-title{
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: introTitleAnim 3s ease forwards;
+    color: white;
+    font-size: 2.5rem;
+}
+
+@keyframes introTitleAnim{
+    70%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100%{
+        transform: translateY(20px);
+    }
+}
+
+
+
+
+
 /* MY OWN ELEMENTS */
 
 
@@ -211,6 +264,10 @@ a{
 .page-shell:has(#theme-dark:checked) .light-theme-img{
     display: none;
 }
+
+
+
+
 
 
 /* ================ GLOBAL LAYOUT ================ */
@@ -1333,6 +1390,10 @@ using the links / targets in the nav header */
 
     .sunder-page-content:first-child{
         padding-top: 180%;
+    }
+
+    .intro-title{
+        font-size: 1.5rem;
     }
 
 }

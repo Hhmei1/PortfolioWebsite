@@ -1,4 +1,33 @@
 
+
+/* INTRO LOADER */
+
+window.addEventListener('load', () => {
+  const loader = document.getElementById('intro-loader');
+
+  // If I want it only once !
+  /*const alreadySeen = sessionStorage.getItem('introPlayed');
+
+  if (alreadySeen) {
+    loader.style.display = 'none';
+    document.body.classList.add('site-ready');
+    return;
+  }*/
+
+  setTimeout(() => {
+    loader.classList.add('hide');
+    document.body.classList.add('site-ready');
+    sessionStorage.setItem('introPlayed', 'true');
+  }, 3000);
+});
+
+
+
+
+
+
+
+
 /* Homepage header opacity fade effect for mobile layout */
 
 const header = document.querySelector('.page-header');
