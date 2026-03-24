@@ -1,32 +1,129 @@
 
 
-/* INTRO LOADER */
-
+/* ON PAGE LOAD*/
 window.addEventListener('load', () => {
-  const loader = document.getElementById('intro-loader');
 
-  // If I want it only once !
-  const alreadySeen = sessionStorage.getItem('introPlayed');
 
-  if (alreadySeen) {
-    loader.style.display = 'none';
-    document.body.classList.add('site-ready');
-    return;
-  }
+    document.documentElement.style.opacity = '1';
+    document.body.style.opacity = '1';
 
-  setTimeout(() => {
-    loader.classList.add('hide');
-    document.body.classList.add('site-ready');
-    sessionStorage.setItem('introPlayed', 'true');
-  }, 3000);
+
+
+    /* INTRO LOADER */
+    const loader = document.getElementById('intro-loader');
+    const alreadySeen = sessionStorage.getItem('introPlayed');
+
+    if (alreadySeen) {
+        // AlreadySeen so we skip
+        loader.style.display = 'none';
+    } 
+    else {
+        // First time playing
+        setTimeout(() => {
+            loader.classList.add('hide');
+            sessionStorage.setItem('introPlayed', 'true');
+        }, 3000);
+    }
+    
+
+    /*FRAME DRAWING*/
+    const path = document.querySelector('.frame-line');
+    const perimeter = 400;
+
+    function buildPath(progress){
+
+        const p = Math.max(0, Math.min(400, progress)); // Force p to stay between 0 and 400
+
+        let d ='M 0 0'; // Start point
+
+        // Top Line (First one)
+        if (p <= 100) { // If progress < to top line lengh we draw the top line and change direction
+            d += ` L ${p} 0`;
+            return d;
+        }
+
+        d += ' L 100 0'; // Add the top line to the path draw
+
+        // Right Line
+        if (p <= 200) { // If progress < to top line and right line lenght we draw the right line and change direction
+            d += ` L 100 ${p - 100}`;
+            return d;
+        }
+
+        d += ' L 100 100'; // Add the right line to the path draw 
+
+        // Bottom Line
+        if (p <= 300) {
+            d += ` L ${100 - (p - 200)} 100`;
+            return d;
+        }
+
+        d += ' L 0 100';
+
+        // Left Line (Last one)
+        if (p <= 400) {
+            d += ` L 0 ${100 - (p - 300)}`;
+            return d;
+        }
+
+        return d;
+    }
+
+    const duration = 1000;
+    const start = performance.now();
+
+    function drawFrame(now) {
+
+        const elapsed = now - start;
+        const t = Math.min(elapsed / duration, 1);
+        const progress = t * 400;
+
+        path.setAttribute('d', buildPath(progress));
+
+        if (t < 1) {
+            requestAnimationFrame(drawFrame); // Recursive call
+        }
+    }
+
+    requestAnimationFrame(drawFrame);
+    //path.setAttribute('d', buildPath(200));
+
+
+    /*PAGE FADE IN */
+
+    const headerElement = document.querySelector('.page-header');
+
+    const contentMask = document.querySelector('.content-mask');
+    const leftBoxMask = document.querySelector('.left-box-mask');
+
+    setTimeout(() => {
+
+        headerElement.classList.add('open');
+        
+    }, 900);
+    
+
+    //Wait for the frame draw to finish
+    setTimeout(() => {
+
+        headerElement.classList.add('open');
+        contentMask.classList.add('fade-in');
+        leftBoxMask.classList.add('fade-in');
+        
+    }, 1500);
+
+  
+    
+
+
 });
 
 
 
-/* PAGE TRANSITION */
 
 
-/* Fade Out */
+
+/*PAGE FADE OUT*/
 const transitionOverlay = document.getElementById('page-fade-out');
 const links = document.querySelectorAll('a[href]');
 
@@ -48,13 +145,9 @@ links.forEach(link => {
 
     setTimeout(() => {
         window.location.href = href;
-    }, 1000);
+    }, 600);
   });
 });
-
-
-
-
 
 
 
