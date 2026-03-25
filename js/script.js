@@ -202,12 +202,12 @@ if (projects) {
 
 const navLinks = document.querySelectorAll('.nav-link');
 const menuLink = document.querySelector('.open-menu');
-var isHeaderClosed = false;
+/*var isHeaderClosed = false;*/
 
 
 
 // If we are on a project page, click on a link on the nav-list remove header.
-if (isProjectPage) {
+if (isProjectPage && mediaQuery.matches) {
 
     
     /*navLinks.forEach(link => {
