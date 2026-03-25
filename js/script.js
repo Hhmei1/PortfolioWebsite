@@ -106,15 +106,14 @@ window.addEventListener('load', () => {
     //Wait for the frame draw to finish
     setTimeout(() => {
 
-        headerElement.classList.add('open');
         contentMask.classList.add('fade-in');
         leftBoxMask.classList.add('fade-in');
+
         
     }, 1500);
 
   
-    
-
+  
 
 });
 
@@ -224,6 +223,7 @@ if (isProjectPage) {
 
         menuLink.addEventListener('click', () => {
             header.classList.remove('closed');
+            header.classList.add('open'); /* A bit ugly but it's working */
         });
     }
 
@@ -233,9 +233,11 @@ if (isProjectPage) {
 
             if(projectContent.scrollTop > 150){
                 header.classList.add('closed');
+                header.classList.remove('open');
             }
             else{
                 header.classList.remove('closed');
+                header.classList.add('open');
             }  
     });
 

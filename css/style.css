@@ -395,7 +395,8 @@ a{
     } 
 }
 
-/* Header animation */
+
+/* Header animation on transition */
 .page-header {
     transform: translateX(-150%);
     transition: transform 0.4s,
@@ -410,6 +411,7 @@ a{
 
 }
 
+/* Content animation on transition */
 
 .content-mask{
 
@@ -427,6 +429,8 @@ a{
 .content-mask.fade-in{
     animation: transitionFadeIn 0.8s ease forwards;
 }
+
+/* Left box animation on transition */
 
 .left-box-mask{
     position: absolute;
@@ -1283,7 +1287,7 @@ using the links / targets in the nav header */
     transform: translateX(-6px);
 }
 
-
+/*Hide the header open button ( MENU ) button for the desktop version */
 .header-button-box{
     opacity: 0;
     pointer-events: none;
@@ -1401,8 +1405,8 @@ using the links / targets in the nav header */
 
     .home-link-box{
         font-size: 1.2rem;
+        margin-top: 20px;
     }
-
 
     /* Header animation */
     .page-header {
@@ -1527,5 +1531,36 @@ using the links / targets in the nav header */
     .intro-title{
         font-size: 1.5rem;
     }
+
+
+    /* Header animation on transition */
+    
+    .page-header {
+        z-index: 999999; /* Need to fix theses values later xD*/
+
+        transform: translateX(-150%);
+        transition: transform 0.4s,
+                    opacity 0.5s;
+
+        opacity: 0;
+    }
+
+    .page-header.open{
+        z-index: 999999; /* Need to fix theses values later xD*/
+        
+        transform: translateX(0%);
+        opacity: 1;
+
+    }
+    
+
+    /* Content animation on transition */
+
+    .content-mask{
+        padding-top: 180%;
+    }
+
+    
+
 
 }
