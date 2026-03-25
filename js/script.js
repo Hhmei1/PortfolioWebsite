@@ -116,13 +116,13 @@ window.addEventListener('load', () => {
   
 
 });
+/*---------------END ON PAGE LOAD---------------------------*/
 
 
 
 
 
-
-/*PAGE FADE OUT*/
+/* ON CLICKPAGE FADE OUT */
 const transitionOverlay = document.getElementById('page-fade-out');
 const links = document.querySelectorAll('a[href]');
 
@@ -147,28 +147,97 @@ links.forEach(link => {
     }, 600);
   });
 });
+/*---------------END ON CLICK FADE OUT TO ANOTHER PAGE---------------------------*/
 
 
 
 
 
 
-/* Homepage header opacity fade effect for mobile layout */
+/* FOR MOBILE LAYOUT */
 
 const header = document.querySelector('.page-header');
-const aboutme = document.querySelector('#aboutme-scroll-box');
-const projects = document.querySelector('.projects-scroll');
 
+const aboutme = document.querySelector('#aboutme-scroll-box'); // Aboutme text scrool box
+const projectslist = document.querySelector('.projects-scroll'); // Project list scroll box
 
-
-const isProjectPage = document.querySelector('.project-page')
 const projectContent = document.querySelector('.sunder-page-content')
 
+const isProjectPage = document.querySelector('.project-page')
 const mediaQuery = window.matchMedia('(max-width: 768px)');
 
+const navLinks = document.querySelectorAll('.nav-link');
+const menuLink = document.querySelector('.open-menu');
+/*var isHeaderClosed = false;*/
 
 
-function handleHeaderOpacity(scrollElement) {
+
+if (mediaQuery.matches){
+
+    if (menuLink) {
+
+        menuLink.addEventListener('click', () => {
+            header.classList.remove('closed');
+            header.classList.add('open'); /* A bit ugly but it's working */
+        });
+    }
+
+
+
+    if(projectContent){
+
+        projectContent.addEventListener('scroll', () => {
+
+            if(projectContent.scrollTop > 150){
+                header.classList.add('closed');
+                header.classList.remove('open');
+            }
+            else{
+                header.classList.remove('closed');
+                header.classList.add('open');
+            }  
+        });
+    }
+
+    
+    if(aboutme){
+
+        aboutme.addEventListener('scroll', () => {
+
+        if(aboutme.scrollTop > 20){
+                header.classList.add('closed');
+                header.classList.remove('open');
+            }
+            else{
+                header.classList.remove('closed');
+                header.classList.add('open');
+            }
+
+        });
+    }
+
+    if(projectslist){
+
+        projectslist.addEventListener('scroll', () => {
+
+        if(projectslist.scrollTop > 20){
+                header.classList.add('closed');
+                header.classList.remove('open');
+            }
+            else{
+                header.classList.remove('closed');
+                header.classList.add('open');
+            }
+
+        });
+    }
+    
+}
+
+
+/* OLD OPACITY SYSTEM */
+
+/*function handleHeaderOpacity(scrollElement) {
     if (!mediaQuery.matches) return;
     
 
@@ -193,20 +262,22 @@ if (projects) {
     projects.addEventListener('scroll', () => {
     handleHeaderOpacity(projects);
 });
-}
+}*/
 
 
 
 
 
 
-const navLinks = document.querySelectorAll('.nav-link');
-const menuLink = document.querySelector('.open-menu');
+/*const navLinks = document.querySelectorAll('.nav-link');
+const menuLink = document.querySelector('.open-menu');*/
+
 /*var isHeaderClosed = false;*/
 
 
 
 // If we are on a project page, click on a link on the nav-list remove header.
+/*
 if (isProjectPage && mediaQuery.matches) {
 
     
@@ -219,11 +290,13 @@ if (isProjectPage && mediaQuery.matches) {
     });*/
 
     // Click on the menu button link to display header is there is a menulink button.
+    /*
     if (menuLink) {
 
         menuLink.addEventListener('click', () => {
             header.classList.remove('closed');
             header.classList.add('open'); /* A bit ugly but it's working */
+            /*
         });
     }
 
@@ -245,5 +318,7 @@ if (isProjectPage && mediaQuery.matches) {
     
 
 }
+*/
 
 /*console.log(navLinks);*/
+

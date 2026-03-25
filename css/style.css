@@ -1168,10 +1168,13 @@ using the links / targets in the nav header */
 
 
 
-/*---- OUTSIDE PAGE CONTENT BOX ---- */
+/*---- OUTSIDE FRAME CONTENT BOX ---- */
 
 
-/* Footer */
+/* BOTTOM BOX */
+
+/*FOOTER*/
+
 .page-footer{
     align-self: flex-start; /* Allow to be self align ( normaly align by shell ) */
     margin-left: 1vw;
@@ -1187,6 +1190,59 @@ using the links / targets in the nav header */
 
 
 
+/* LEFT BOX */
+
+
+/* HOMEPAGE BUTTON */
+
+.home-link-box{
+    font-size: 2rem;
+
+    z-index: 1;
+
+    display: flex;
+    align-items: end;
+    writing-mode: sideways-lr;
+    padding-top: 8%;
+}
+
+/*Hide an Display Home button to keep layout in homepage*/
+.page-home .page-shell .left-box .home-link-box {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.page-sunder .page-shell .left-box .home-link-box{
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+.return-home-link{
+    transition: 
+        color 0.25s ease, 
+        transform 0.25s ease;
+}
+
+.return-home-link:hover{
+
+    color: var(--active-color-text-hover);
+    transform: translateX(-6px);
+}
+
+
+
+/* HEADER "MENU" BUTTON */
+
+/* No need on the desktop version */
+.header-button-box{
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+
+/* THEME TOGGLE */
 
 #theme-toggle-box{
     /*height: 100%;*/
@@ -1194,8 +1250,6 @@ using the links / targets in the nav header */
     justify-content: end;
 
 }
-
-
 
 /* Theme toggle buttons*/
 .theme-toggle{
@@ -1251,124 +1305,30 @@ using the links / targets in the nav header */
 
 
 
-/* Home link */
-
-.home-link-box{
-    font-size: 2rem;
-
-    z-index: 1;
-
-    display: flex;
-    align-items: end;
-    writing-mode: sideways-lr;
-    padding-top: 8%;
-}
-
-/*Hide an Display Home button to keep layout in homepage*/
-.page-home .page-shell .left-box .home-link-box {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.page-sunder .page-shell .left-box .home-link-box{
-    opacity: 1;
-    pointer-events: all;
-}
 
 
-.return-home-link{
-    transition: 
-        color 0.25s ease, 
-        transform 0.25s ease;
-}
 
-.return-home-link:hover{
 
-    color: var(--active-color-text-hover);
-    transform: translateX(-6px);
-}
 
-/*Hide the header open button ( MENU ) button for the desktop version */
-.header-button-box{
-    opacity: 0;
-    pointer-events: none;
-}
+
+
+
+
 
 
 /* @ MEDIA QUERYS */
+/* Yeah I didn't respected the mobile first approach :'( I was learning, I will do it one day */
 
-
-/* Mobile */ /* Yeah I didn't respected the mobile first approach :'( I was learning, I will do it one day */
+/* MOBILE LAYOUT */ 
 
 @media (max-width: 768px){
+
+
+    /* GLOBAL TEXT LAYOUT */
 
     .figure-default-style{
         margin: 0.1rem;
     }   
-
-    
-
-
-
-    .page-shell{
-        grid-template-columns: 8% 84% 8%;
-        grid-template-rows: 5% 90% 5%;
-        font-size: 0.8rem;
-    }
-    
-    .page-frame{ 
-
-        grid-area: main-box;
-
-        display: block;
-        padding: 4%;
-
-    
-    }
-
-    .page-content{
-        height: 100%;
-    }
-   
-    .page-header{
-        position: fixed;
-        background-color:transparent;
-        z-index: 5;
-
-        width: min-content;
-
-        /*transform: translateX(-150%);*/
-    }
-
-    .header-button-box{
-        font-size: 1.2rem;
-
-        z-index: 1;
-
-        display: flex;
-        align-items: end;
-        writing-mode: sideways-lr;
-
-        transition: 
-        color 0.25s ease, 
-        transform 0.25s ease;
-        cursor: pointer;
-
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    #title{
-        scroll-margin-top: 600px;
-    }
-
-
-    .header-button-box:hover,
-    .header-button-box:focus-visible{
-        color: var(--active-color-text-hover);
-        transform: translateX(-6px);
-    }
-
 
     .page-title{
         /* Margin & Padding */
@@ -1401,6 +1361,111 @@ using the links / targets in the nav header */
         height: 15px;
     }
 
+
+    /* GLOBAL FRAME LAYOUT*/
+
+    .page-shell{
+        grid-template-columns: 8% 84% 8%;
+        grid-template-rows: 5% 90% 5%;
+        font-size: 0.8rem;
+    }
+    
+    .page-frame{ 
+
+        grid-area: main-box;
+
+        display: block;
+        padding: 4%;
+
+    
+    }
+
+    .page-content{
+        height: 100%;
+    }
+   
+    /* Header */
+
+    .page-header{
+        position: fixed;
+        background-color:transparent;
+        z-index: 5;
+
+        width: min-content;
+
+        /*transform: translateX(-150%);*/
+    }
+
+
+    /* "MENU" HEADER DISPLAY BUTTON */
+    /* For project page use only */
+    .header-button-box{
+        font-size: 1.2rem;
+
+        z-index: 1;
+
+        display: flex;
+        align-items: end;
+        writing-mode: sideways-lr;
+
+        transition: 
+        color 0.25s ease, 
+        transform 0.25s ease;
+        cursor: pointer;
+
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+    }
+
+    .header-button-box:hover,
+    .header-button-box:focus-visible{
+        color: var(--active-color-text-hover);
+        transform: translateX(-6px);
+    }
+
+
+    /* Html anchor element to scroll all the content to the top */
+    #title{
+        scroll-margin-top: 600px;
+    }
+
+
+    /* Header animations for open and closed on navigation */
+    /* Not used in the desktop layout */
+
+    /*.page-header {
+        transform: translateX(0);
+        transition: transform 0.4s,
+                    opacity 0.5s;
+
+        opacity: 1;
+    }*/
+
+    .page-header {
+        z-index: 999999; /* Need to fix theses values later xD*/
+
+        transform: translateX(-150%);
+        transition: transform 0.4s,
+                    opacity 0.5s;
+
+        opacity: 0;
+    }
+
+    .page-header.closed{
+        transform: translateX(-150%);
+        opacity: 0;
+    }
+
+    .page-header.open{
+        z-index: 999999; /* Need to fix theses values later xD*/
+        
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+
+
         
     /* Home link */
 
@@ -1409,24 +1474,8 @@ using the links / targets in the nav header */
         margin-top: 20px;
     }
 
-    /* Header animation */
-    .page-header {
-        transform: translateX(0);
-        transition: transform 0.4s,
-                    opacity 0.5s;
 
-        opacity: 1;
-    }
-
-    .page-header.closed{
-        transform: translateX(-150%);
-        opacity: 0;
-
-    }
-
-
-
-
+    /* Footer */
 
     .page-footer{
         margin-left: 2vw;
@@ -1437,6 +1486,7 @@ using the links / targets in the nav header */
         font-weight: 400;
         margin-top: 0.2rem;
     }
+
 
     /*---- ABOUT ME SECTION ---- */
 
@@ -1454,18 +1504,17 @@ using the links / targets in the nav header */
     }
 
     #aboutme-scroll-box{
-        width: 70%;
+        width: 100%;
         height: 100%;
 
         overflow-y: auto;
 
         overscroll-behavior: contain;
         scrollbar-width: none;
-
     }
 
     #aboutme-scroll-box:first-child{
-        padding-top: 150%;
+        padding-top: 120%;
     }
 
 
@@ -1491,9 +1540,12 @@ using the links / targets in the nav header */
         gap: 1.2rem;
     }
 
+
     .projectslist:first-child{
-        padding-top: 180%;
+        padding-top: 120%;
     }
+    
+
 
     /* Project list scroll */
     .projects-scroll{
@@ -1534,25 +1586,6 @@ using the links / targets in the nav header */
     }
 
 
-    /* Header animation on transition */
-    
-    .page-header {
-        z-index: 999999; /* Need to fix theses values later xD*/
-
-        transform: translateX(-150%);
-        transition: transform 0.4s,
-                    opacity 0.5s;
-
-        opacity: 0;
-    }
-
-    .page-header.open{
-        z-index: 999999; /* Need to fix theses values later xD*/
-        
-        transform: translateX(0%);
-        opacity: 1;
-
-    }
     
 
     /* Content animation on transition */
